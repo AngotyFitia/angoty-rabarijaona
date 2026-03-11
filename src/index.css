@@ -1,0 +1,75 @@
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff; /* fond blanc */
+    --foreground: #1a1a1a; /* texte noir/gris foncé */
+    --card: #ffffff;
+    --card-foreground: #1a1a1a;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a1a;
+
+    --primary: #7b1f3d; /* grenat */
+    --primary-foreground: #ffffff;
+
+    --secondary: #f3f4f6; /* gris clair */
+    --secondary-foreground: #1a1a1a;
+
+    --muted: #f9fafb;
+    --muted-foreground: #6b7280;
+
+    --accent: #7b1f3d; /* grenat accent */
+    --accent-foreground: #ffffff;
+
+    --destructive: #dc2626;
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --ring: #7b1f3d;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #1a1a1a; /* fond sombre */
+    --foreground: #f9fafb;
+    --card: #1a1a1a;
+    --card-foreground: #f9fafb;
+    --popover: #1a1a1a;
+    --popover-foreground: #f9fafb;
+
+    --primary: #b91c47; /* grenat plus vif */
+    --primary-foreground: #ffffff;
+
+    --secondary: #374151;
+    --secondary-foreground: #f9fafb;
+
+    --muted: #374151;
+    --muted-foreground: #9ca3af;
+
+    --accent: #b91c47;
+    --accent-foreground: #ffffff;
+
+    --destructive: #ef4444;
+    --border: #374151;
+    --input: #374151;
+    --ring: #b91c47;
+  }
+
+  body {
+    @apply bg-[#ffffff];
+  }
+
+  html {
+    font-family: 'Merriweather', serif;
+  }
+  
+}
+
+
