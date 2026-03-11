@@ -135,27 +135,33 @@ export default function Project() {
 
 
       {/* Modal */}
-      {activeProject && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white rounded-2xl shadow-2xl p-10 max-w-6xl w-full relative">
-      {/* Bouton fermeture */}
+{activeProject && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
+    <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-6xl w-full relative overflow-y-auto max-h-[90vh]">
+      {/* Close button */}
       <button
         onClick={() => setActiveProject(null)}
-        className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl transition"
+        className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-xl md:text-2xl transition"
       >
         <i className="fas fa-times"></i>
       </button>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Colonne gauche */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+        {/* Left column */}
         <div className="flex flex-col space-y-6">
-          {/* Titre */}
-          <h2 className="text-3xl font-extrabold text-gray-900">{activeProject.title}</h2>
+          {/* Title */}
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">
+            {activeProject.title}
+          </h2>
 
-          {/* Objectifs & description */}
+          {/* Objectives & description */}
           <div className="space-y-2">
-            <p className="text-base text-gray-700 leading-relaxed">{activeProject.objectives}</p>
-            <p className="text-sm text-gray-500 leading-relaxed">{activeProject.description}</p>
+            <p className="text-base text-gray-700 leading-relaxed">
+              {activeProject.objectives}
+            </p>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              {activeProject.description}
+            </p>
           </div>
 
           {/* Technologies */}
@@ -173,7 +179,7 @@ export default function Project() {
             </div>
           </div>
 
-          {/* Collaborateurs */}
+          {/* Collaborators */}
           {activeProject.collaborators && activeProject.collaborators.length > 0 && (
             <div className="space-y-2">
               <span className="text-sm font-semibold text-gray-800">Collaborators</span>
@@ -202,13 +208,13 @@ export default function Project() {
             </div>
           )}
 
-          {/* Boutons côte à côte */}
-          <div className="flex items-center gap-4 mt-6">
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6">
             <a
               href={activeProject.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 text-sm font-medium transition shadow-md"
+              className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 text-sm font-medium transition shadow-md w-full sm:w-auto justify-center"
             >
               <i className="fas fa-code-branch"></i>
               Source code
@@ -218,7 +224,7 @@ export default function Project() {
               href={activeProject.orgLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 underline font-medium transition"
+              className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 underline font-medium transition w-full sm:w-auto justify-center"
             >
               <i className="fas fa-building"></i>
               {activeProject.organization}
@@ -226,12 +232,12 @@ export default function Project() {
           </div>
         </div>
 
-        {/* Colonne droite : carrousel */}
+        {/* Right column: carousel */}
         <div className="relative">
           <img
             src={activeProject.gallery[currentIndex]}
             alt="Gallery"
-            className="w-full h-80 object-cover rounded-xl shadow-lg"
+            className="w-full h-48 md:h-80 object-cover rounded-xl shadow-lg"
           />
           {activeProject.gallery.length > 1 && (
             <>
@@ -258,7 +264,7 @@ export default function Project() {
             </>
           )}
 
-          {/* Indicateurs du carrousel */}
+          {/* Carousel indicators */}
           <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
             {activeProject.gallery.map((_, index) => (
               <span
@@ -274,6 +280,7 @@ export default function Project() {
     </div>
   </div>
 )}
+
 
 
     </section>
