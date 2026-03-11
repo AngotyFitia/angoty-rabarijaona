@@ -97,7 +97,7 @@ export const projects: ProjectType[] = [
     technologies: ["Ionic", "Angular", "Spring JSP", "PostgreSQL", "DbSchema", "GitHub", "Pencil"],
     github: "https://github.com/AngotyFitia/mobile-artizana",
     collaborators: [
-      { name: "Nancy ANDRIAMAHANINTSOA", type: "linkedin", link: "https://linkedin.com/in/sarahlee" }
+      { name: "Nancy ANDRIAMAHANINTSOA", type: "linkedin", link: "https://linkedin.com/in/nancy-elidah-andriamahanintsoa-63574a312" }
     ]
   },
   {
