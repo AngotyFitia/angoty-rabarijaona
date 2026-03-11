@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { projects } from "@/data/projectsData"
+import { projects, type ProjectType } from "@/data/projectsData"
 
 export default function Project() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedOrg, setSelectedOrg] = useState("All Organizations")
-  const [activeProject, setActiveProject] = useState(null)
+  const [activeProject, setActiveProject] = useState<ProjectType | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const filteredProjects = projects.filter((p) => {
