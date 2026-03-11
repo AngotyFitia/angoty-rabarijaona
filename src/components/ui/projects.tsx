@@ -134,7 +134,7 @@ export default function Project() {
 
 
 
-      {/* Modal */}
+{/* Modal */}
 {activeProject && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
     <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-6xl w-full relative overflow-y-auto max-h-[90vh]">
@@ -147,13 +147,60 @@ export default function Project() {
       </button>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-        {/* Left column */}
-        <div className="flex flex-col space-y-6">
-          {/* Title */}
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">
+        {/* Title always first */}
+        <div className="order-1 col-span-1 md:col-span-2">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center md:text-left">
             {activeProject.title}
           </h2>
+        </div>
 
+        {/* Image first on mobile, second on desktop */}
+        <div className="relative order-2 md:order-2">
+          <img
+            src={activeProject.gallery[currentIndex]}
+            alt="Gallery"
+            className="w-full h-48 md:h-80 object-cover rounded-xl shadow-lg"
+          />
+          {activeProject.gallery.length > 1 && (
+            <>
+              <button
+                onClick={() =>
+                  setCurrentIndex((prev) =>
+                    prev === 0 ? activeProject.gallery.length - 1 : prev - 1
+                  )
+                }
+                className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 text-white px-3 py-2 rounded-full hover:bg-opacity-70 transition"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() =>
+                  setCurrentIndex((prev) =>
+                    prev === activeProject.gallery.length - 1 ? 0 : prev + 1
+                  )
+                }
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 text-white px-3 py-2 rounded-full hover:bg-opacity-70 transition"
+              >
+                ›
+              </button>
+            </>
+          )}
+
+          {/* Carousel indicators */}
+          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+            {activeProject.gallery.map((_, index) => (
+              <span
+                key={index}
+                className={`w-2 h-2 rounded-full ${
+                  index === currentIndex ? "bg-blue-600" : "bg-gray-300"
+                }`}
+              ></span>
+            ))}
+          </div>
+        </div>
+
+        {/* Text content after image on mobile */}
+        <div className="flex flex-col space-y-6 order-3 md:order-1">
           {/* Objectives & description */}
           <div className="space-y-2">
             <p className="text-base text-gray-700 leading-relaxed">
@@ -231,55 +278,12 @@ export default function Project() {
             </a>
           </div>
         </div>
-
-        {/* Right column: carousel */}
-        <div className="relative">
-          <img
-            src={activeProject.gallery[currentIndex]}
-            alt="Gallery"
-            className="w-full h-48 md:h-80 object-cover rounded-xl shadow-lg"
-          />
-          {activeProject.gallery.length > 1 && (
-            <>
-              <button
-                onClick={() =>
-                  setCurrentIndex((prev) =>
-                    prev === 0 ? activeProject.gallery.length - 1 : prev - 1
-                  )
-                }
-                className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 text-white px-3 py-2 rounded-full hover:bg-opacity-70 transition"
-              >
-                ‹
-              </button>
-              <button
-                onClick={() =>
-                  setCurrentIndex((prev) =>
-                    prev === activeProject.gallery.length - 1 ? 0 : prev + 1
-                  )
-                }
-                className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 text-white px-3 py-2 rounded-full hover:bg-opacity-70 transition"
-              >
-                ›
-              </button>
-            </>
-          )}
-
-          {/* Carousel indicators */}
-          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-            {activeProject.gallery.map((_, index) => (
-              <span
-                key={index}
-                className={`w-2 h-2 rounded-full ${
-                  index === currentIndex ? "bg-blue-600" : "bg-gray-300"
-                }`}
-              ></span>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   </div>
 )}
+
+
 
 
 
