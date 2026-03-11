@@ -2,6 +2,7 @@ import './App.css'
 import Header from "@/components/ui/header"
 import Home from "@/components/ui/home"
 import About from "@/components/ui/about"
+import Project from './components/ui/projects'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <Header />
         <Home />
         <About />
+        <Project />
         {/* <section id="about" className="p-10">À propos…</section>
         <section id="projects" className="p-10">Mes projets…</section>
         <section id="contact" className="p-10">Contact…</section> */}
