@@ -18,7 +18,7 @@ export default function Project() {
     <section id="projects" className="min-h-screen w-full bg-white px-6 md:px-12 py-16 md:py-20">
       {/* Titre */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a1a1a]">My Projects</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a1a1a]">Selected Projects</h2>
         <p className="mt-4 text-base sm:text-lg md:text-xl text-[#555] max-w-2xl mx-auto">
           Explore a selection of my work across web, mobile, full‑stack, and data‑driven solutions.
         </p>
