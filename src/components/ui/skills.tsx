@@ -1,19 +1,20 @@
 import { useState } from "react";
-import { hardSkills, softSkills, languages } from "@/data/skillsData";
+import { hardSkills, softSkills, languages, otherLanguages } from "@/data/skillsData";
+import ReactCountryFlag from "react-country-flag";
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState("Backend Development");
   const [activeSoftTab, setActiveSoftTab] = useState("Soft Skills");
 
   return (
-    <section id="skills" className="p-6 sm:p-8 bg-gray-50 rounded-xl shadow-md">
+    <section id="skills" className="p-6 sm:p-8 bg-gray-50 rounded-xl">
       {/* Section Title */}
       <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-gray-900">
         Skills
       </h2>
 
       {/* Introductive Text */}
-      <p className="mb-8 sm:mb-12 text-base sm:text-lg md:text-xl text-[#555] max-w-2xl mx-auto text-center">
+      <p className="mb-8 text-sm sm:text-base text-gray-600 text-center max-w-xl mx-auto">
         This section highlights both my technical expertise and interpersonal abilities. 
         You’ll find my core strengths in backend, frontend, and database development, 
         as well as soft skills and language proficiency that support effective teamwork 
@@ -53,12 +54,10 @@ export default function Skills() {
                 className="flex flex-col items-center gap-3 p-4 bg-white rounded-md shadow-sm hover:shadow-md transition w-32 sm:w-36"
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100">
-                  <img
-                    src={skill.image}
-                    alt={skill.name}
-                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                  />
-                </div>
+  <i className={`${skill.icon} text-3xl`}></i>
+</div>
+
+                
                 <p className="text-xs sm:text-sm font-semibold text-gray-900 text-center truncate">
                   {skill.name}
                 </p>
@@ -126,27 +125,34 @@ export default function Skills() {
         {activeSoftTab === "Languages" && (
           <div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
             {languages.map((lang) => (
-              <div
-                key={lang.name}
-                className="flex flex-col items-center gap-2 p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition w-28 sm:w-36"
-              >
-                {lang.icon && (
-                  <img
-                    src={lang.icon}
-                    alt={lang.name}
-                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                  />
-                )}
-                <p className="font-medium text-gray-900 text-xs sm:text-sm">
-                  {lang.name}
-                </p>
-                <span className="text-[11px] sm:text-xs text-gray-600">
-                  {lang.level}
-                </span>
-              </div>
+            <div key={lang.name} className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl shadow-sm">
+                <ReactCountryFlag
+                countryCode={lang.icon!}
+                svg
+                style={{ fontSize: "2em" }}
+                />
+                <p className="font-medium text-gray-900 text-xs sm:text-sm">{lang.name}</p>
+                <span className="text-[11px] sm:text-xs text-gray-600">{lang.level}</span>
+            </div>
             ))}
           </div>
         )}
+        {/* Other Languages */}
+<div className="mt-12">
+  <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-gray-800 text-center">
+    Other Technologies
+  </h3>
+
+  <div className="flex flex-wrap justify-center gap-6">
+    {otherLanguages.map((lang) => (
+      <div key={lang.name} className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition w-24 sm:w-28">
+        <i className={`${lang.icon} text-3xl`}></i>
+        <p className="text-xs sm:text-sm font-medium text-gray-700">{lang.name}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

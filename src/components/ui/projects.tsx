@@ -18,8 +18,10 @@ export default function Project() {
     <section id="projects" className="min-h-screen w-full bg-white px-6 md:px-12 py-16 md:py-20">
       {/* Titre */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a1a1a]">Selected Projects</h2>
-        <p className="mt-4 text-base sm:text-lg md:text-xl text-[#555] max-w-2xl mx-auto">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-gray-900">
+        Selected Projects
+      </h2>
+        <p className="mb-8 text-sm sm:text-base text-gray-600 text-center max-w-xl mx-auto">
           Explore a selection of my work across web, mobile, full‑stack, and data‑driven solutions.
         </p>
       </div>
@@ -56,7 +58,7 @@ export default function Project() {
       </div>
 
       {/* Cards projets */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
   {filteredProjects.map((project) => (
     <div
       key={project.id}
@@ -106,26 +108,25 @@ export default function Project() {
           </div>
 
           {/* Organisation + Type */}
-          {/* Organisation + Type */}
-<div className="flex items-center justify-between text-xs mt-2">
-  {/* Organisation avec icône cliquable */}
-  <a
-    href={project.orgLink}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition"
-  >
-    <i className="fas fa-building"></i>
-    <span>{project.organization}</span>
-  </a>
+          <div className="flex items-center justify-between text-xs mt-2">
+            {/* Organisation avec icône cliquable */}
+            <a
+              href={project.orgLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium transition"
+            >
+              <i className="fas fa-building"></i>
+              <span>{project.organization}</span>
+              <i className="fas fa-arrow-up-right-from-square text-xs text-gray-500"></i>
+            </a>
 
-  {/* Type du projet */}
-  <div className="flex items-center gap-2 text-gray-500">
-    <i className="fas fa-tag"></i>
-    <span className="font-medium">{project.category}</span>
-  </div>
-</div>
-
+            {/* Type du projet */}
+            <div className="flex items-center gap-2 text-gray-600">
+              <i className="fas fa-tag"></i>
+              <span className="font-medium">{project.category}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -134,10 +135,12 @@ export default function Project() {
 
 
 
+
 {/* Modal */}
 {activeProject && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
     <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-6xl w-full relative overflow-y-auto max-h-[90vh]">
+      
       {/* Close button */}
       <button
         onClick={() => setActiveProject(null)}
@@ -147,14 +150,15 @@ export default function Project() {
       </button>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-        {/* Title always first */}
+        
+        {/* Title */}
         <div className="order-1 col-span-1 md:col-span-2">
           <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center md:text-left">
             {activeProject.title}
           </h2>
         </div>
 
-        {/* Image first on mobile, second on desktop */}
+        {/* Image */}
         <div className="relative order-2 md:order-2">
           <img
             src={activeProject.gallery[currentIndex]}
@@ -192,15 +196,16 @@ export default function Project() {
               <span
                 key={index}
                 className={`w-2 h-2 rounded-full ${
-                  index === currentIndex ? "bg-blue-600" : "bg-gray-300"
+                  index === currentIndex ? "bg-gray-800" : "bg-gray-400"
                 }`}
               ></span>
             ))}
           </div>
         </div>
 
-        {/* Text content after image on mobile */}
+        {/* Text content */}
         <div className="flex flex-col space-y-6 order-3 md:order-1">
+          
           {/* Objectives & description */}
           <div className="space-y-2">
             <p className="text-base text-gray-700 leading-relaxed">
@@ -241,13 +246,14 @@ export default function Project() {
                       href={collab.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition"
+                      className="text-gray-700 hover:text-gray-900 transition"
                     >
                       {collab.type === "linkedin" ? (
                         <i className="fab fa-linkedin text-lg"></i>
                       ) : (
                         <i className="fas fa-globe text-lg"></i>
                       )}
+                      <i className="fas fa-arrow-up-right-from-square text-xs ml-1 text-gray-500"></i>
                     </a>
                   </div>
                 ))}
@@ -271,10 +277,11 @@ export default function Project() {
               href={activeProject.orgLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 underline font-medium transition w-full sm:w-auto justify-center"
+              className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900 underline font-medium transition w-full sm:w-auto justify-center"
             >
               <i className="fas fa-building"></i>
               {activeProject.organization}
+              <i className="fas fa-arrow-up-right-from-square text-xs text-gray-500"></i>
             </a>
           </div>
         </div>

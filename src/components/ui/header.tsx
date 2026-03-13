@@ -1,17 +1,30 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const windowHeight = window.innerHeight
+      const docHeight = document.documentElement.scrollHeight
+
+      // Si on est proche du bas de la page
+      if (scrollTop + windowHeight >= docHeight - 10) {
+        setScrollDirection("up")
+      } else {
+        setScrollDirection("down")
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
-    <div className="fixed bottom-0 w-full z-40 flex justify-center">
-  <div className="flex items-center gap-2 bg-white text-gray-900 text-sm px-4 py-1 rounded-full shadow-md mb-2">
-    <i className="fas fa-briefcase text-gray-700" style={{color:"green"}}></i>
-    <span>Available for new projects</span>
-  </div>
-</div>
     <header className="w-full fixed  top-0 left-0 border-b border-[#e0e0e0] z-50 
         bg-white/30 backdrop-blur-md">
   <div className="w-full flex items-center justify-between py-4 px-6">
@@ -67,14 +80,33 @@ export default function Header() {
 
   )}
 </header>
+<div className="fixed bottom-0 w-full z-40 flex flex-col items-center gap-2 mb-4" style={{ marginLeft: "-20px" }}>
+        {/* Indicateur Scroll */}
+        <div
+          className={`flex flex-col items-center text-gray-700 ${
+            scrollDirection === "down" ? "animate-bounce" : "animate-bounce-up"
+          }`}
+        >
+          {scrollDirection === "down" ? (
+            <>
+              <span className="text-sm">Scroll down</span>
+              <i className="fas fa-chevron-down text-lg"></i>
+            </>
+          ) : (
+            <>
+              <span className="text-sm">Scroll up</span>
+              <i className="fas fa-chevron-up text-lg"></i>
+            </>
+          )}
+        </div>
 
-{/* Indicateur Scroll Down */}
-<div className="fixed bottom-12 w-full flex justify-center z-40">
-  <div className="flex flex-col items-center text-gray-700 animate-bounce">
-    <span className="text-sm">Scroll down</span>
-    <i className="fas fa-chevron-down text-lg"></i>
-  </div>
-</div>
+        {/* Bandeau disponibilité */}
+        <div className="flex items-center gap-2 bg-white text-gray-900 text-sm px-4 py-1 rounded-full shadow-md">
+          <i className="fas fa-briefcase text-gray-700" style={{ color: "green" }}></i>
+          <span>Available for new projects</span>
+        </div>
+      </div>
+
 
 
       

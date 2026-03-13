@@ -4,17 +4,18 @@ export default function About() {
   return (
     <section id="about" className="min-h-screen w-full bg-[#f9f9f9] px-6 md:px-12 py-16 md:py-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a1a1a]">
-          About me
-        </h2>
+      <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-gray-900">
+        About me
+      </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* Colonne gauche : présentation */}
         <div className="space-y-6 self-center">
-          <p className="text-base sm:text-lg md:text-xl text-[#555555] leading-relaxed text-center md:text-left">
-            Hello! I'm <span className="font-semibold">Angoty RABARIJAONA</span>, a passionate Full‑stack Developer and Data Analyst. 
+          {/* <p className="text-base sm:text-lg md:text-xl text-[#555555] leading-relaxed text-center md:text-left"> */}
+          <p className="mb-8 text-sm sm:text-base text-gray-600 text-center text-center md:text-left">
+            Hi! I'm <span className="font-semibold">Angoty RABARIJAONA</span>, a passionate Full‑stack Developer and Data Analyst. 
             I specialize in crafting modern web and mobile applications, while also leveraging data to uncover insights and drive smarter decisions. 
             With a strong focus on building responsive, user‑friendly digital experiences and applying analytical thinking to solve complex problems, 
             I bring together creativity and technical expertise to deliver impactful solutions.

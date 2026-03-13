@@ -44,7 +44,7 @@ export const projects: ProjectType[] = [
     description: "My personal portfolio built with love and compassion",
     objectives: "Showcase my skills and projects with a modern design.",
     image: "/images/projects/portfolio-projects.png",
-    gallery: ["/images/projects/portfolio-projects.png"],
+    gallery: ["/images/projects/portfolio-projects.png", "/images/projects/portfolio-skills.png"],
     category: "Web development",
     organization: "Personal",
     orgLink: "https://angoty-rabarijaona.vercel.app",
