@@ -40,7 +40,15 @@ export default function Header() {
         <a href="#services" className="text-[#1a1a1a] hover:text-[#555555]">Services</a>
         <a href="#contact" className="text-[#1a1a1a] hover:text-[#555555]">Contact</a>
       </nav>
-      <Button className="bg-[#000000] text-[#ffffff] hover:bg-[#333333]">CV</Button>
+      <a
+  href="/public/About me.pdf" 
+  download
+  className="bg-[#000000] text-[#ffffff] hover:bg-[#333333] px-4 py-2 rounded-md"
+>
+<Button className="bg-[#000000] text-[#ffffff] hover:bg-[#333333]">CV</Button>
+</a>
+
+      
     </div>
 
     {/* Mobile hamburger */}
@@ -72,9 +80,15 @@ export default function Header() {
   <a href="#contact" className="flex items-center justify-center gap-2 text-[#1a1a1a] hover:text-[#555555]">
     <i className="fas fa-envelope"></i> <span>Contact</span>
   </a>
-  <Button className="w-full bg-[#000000] text-[#ffffff] hover:bg-[#333333]">CV</Button>
+  <a
+  href="/About me.pdf" 
+  download
+  className="w-full flex items-center justify-center gap-2 bg-[#000000] text-[#ffffff] hover:bg-[#333333] px-4 py-2 rounded-md"
+>
+  <i className="fas fa-file-download"></i>
+  <span>CV</span>
+</a>
 
-  
 </div>
 
 
