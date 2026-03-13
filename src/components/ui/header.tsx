@@ -8,7 +8,7 @@ export default function Header() {
     <header className="w-full fixed top-0 left-0 border-b border-[#e0e0e0] z-50 
   bg-white/30 backdrop-blur-md">
   <div className="w-full flex items-center justify-between py-4 px-6">
-    <div className="text-2xl font-bold text-[#1a1a1a]">Angoty.</div>
+    <div className="text-2xl font-bold text-[#1a1a1a]">Angoty</div>
 
     {/* Desktop navigation */}
     <div className="hidden md:flex items-center space-x-6">
