@@ -5,8 +5,15 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="w-full fixed top-0 left-0 border-b border-[#e0e0e0] z-50 
-  bg-white/30 backdrop-blur-md">
+    <>
+    <div className="fixed bottom-0 w-full z-40 flex justify-center">
+  <div className="flex items-center gap-2 bg-white text-gray-900 text-sm px-4 py-1 rounded-full shadow-md mb-2">
+    <i className="fas fa-briefcase text-gray-700" style={{color:"green"}}></i>
+    <span>Available for new projects</span>
+  </div>
+</div>
+    <header className="w-full fixed  top-0 left-0 border-b border-[#e0e0e0] z-50 
+        bg-white/30 backdrop-blur-md">
   <div className="w-full flex items-center justify-between py-4 px-6">
     <div className="text-2xl font-bold text-[#1a1a1a]">Angoty</div>
 
@@ -53,10 +60,24 @@ export default function Header() {
     <i className="fas fa-envelope"></i> <span>Contact</span>
   </a>
   <Button className="w-full bg-[#000000] text-[#ffffff] hover:bg-[#333333]">CV</Button>
+
+  
 </div>
+
 
   )}
 </header>
 
+{/* Indicateur Scroll Down */}
+<div className="fixed bottom-12 w-full flex justify-center z-40">
+  <div className="flex flex-col items-center text-gray-700 animate-bounce">
+    <span className="text-sm">Scroll down</span>
+    <i className="fas fa-chevron-down text-lg"></i>
+  </div>
+</div>
+
+
+      
+  </>
   )
 }
