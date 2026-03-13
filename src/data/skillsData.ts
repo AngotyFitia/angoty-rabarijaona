@@ -127,6 +127,12 @@ export type TechSkill = {
   // Données Languages
   export const languages: LanguageSkill[] = [
     { 
+        name: "Malagasy", 
+        level: "Native (Mother tongue)", 
+        percentage: 100, 
+        icon: "/images/skills/malagasy.png" 
+      },
+    { 
       name: "English", 
       level: "Fluent (Professional use)", 
       percentage: 90, 
@@ -138,11 +144,6 @@ export type TechSkill = {
       percentage: 70, 
       icon: "/images/skills/france.jfif" 
     },
-    { 
-      name: "Malagasy", 
-      level: "Native (Mother tongue)", 
-      percentage: 100, 
-      icon: "/images/skills/malagasy.png" 
-    },
+    
   ];
   
