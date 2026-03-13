@@ -26,9 +26,11 @@ export default function Home() {
         
         {/* Boutons */}
         <div className="flex flex-row gap-4 justify-center md:justify-start animate-fadeIn delay-600">
+        <a href="#contact">
           <Button className="w-auto bg-[#000000] text-[#ffffff] rounded-full px-6 py-3 shadow-md hover:bg-[#333333] hover:translate-y-[-2px] transition-transform duration-300">
             Let’s talk
           </Button>
+          </a>
           <a href="#projects">
   <Button className="w-auto bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] hover:translate-y-[-2px] transition-transform duration-300">
     View projects

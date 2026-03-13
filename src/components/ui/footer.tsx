@@ -67,15 +67,19 @@ export default function Footer() {
         </div>
   
         {/* Bas de page */}
-        <div className="mt-12 border-t border-gray-300 pt-6 flex justify-between items-center text-sm text-gray-600">
-          <span>© 2026 — Designed & built with ♥ by Angoty RABARIJAONA</span>
-          <button
-          onClick={scrollToTop}
-          className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition"
-        >
-          <i className="fas fa-arrow-up"></i>
-          <span>Back to Top</span>          </button>
-        </div>
+        <div className="mt-12 border-t border-gray-300 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+  <span className="text-center md:text-left">
+    © 2025 — Designed & built by Angoty RABARIJAONA
+  </span>
+  <button
+    onClick={scrollToTop}
+    className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition"
+  >
+    <i className="fas fa-arrow-up"></i>
+    <span>Back to Top</span>
+  </button>
+</div>
+
       </footer>
     )
   }

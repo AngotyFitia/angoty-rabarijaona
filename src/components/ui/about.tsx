@@ -22,12 +22,20 @@ export default function About() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#contact">
             <Button className="bg-[#000000] text-[#ffffff] rounded-full px-6 py-3 shadow-md hover:bg-[#333333] transition-transform duration-300">
               Let’s work together
             </Button>
+          </a>
+          <a
+  href="/public/About Me.pdf"
+  download
+>
+
             <Button className="bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] transition-transform duration-300">
               Download CV
             </Button>
+</a>
           </div>
         </div>
 
