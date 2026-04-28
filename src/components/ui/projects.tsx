@@ -77,78 +77,82 @@ export default function Project() {
       
       {/* Modal */}
       {activeProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-6xl w-full relative overflow-y-auto max-h-[90vh]">
-            <button onClick={() => setActiveProject(null)} className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-xl md:text-2xl transition"><i className="fas fa-times"></i></button>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-              <div className="order-1 col-span-1 md:col-span-2">
-                <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center md:text-left">{activeProject.title}</h2>
-              </div>
-              <div className="relative order-2 md:order-2">
-                <img src={activeProject.gallery[currentIndex]} alt="Gallery" className="w-full h-48 md:h-80 object-cover rounded-xl shadow-lg"/>
-                {activeProject.gallery.length > 1 && (
-                  <>
-                    <button onClick={() => setCurrentIndex((prev) => prev === 0 ? activeProject.gallery.length - 1 : prev - 1)} className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 text-white px-3 py-2 rounded-full hover:bg-opacity-70 transition">‹</button>
-                    <button onClick={() => setCurrentIndex((prev) => prev === activeProject.gallery.length - 1 ? 0 : prev + 1)}className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 text-white px-3 py-2 rounded-full hover:bg-opacity-70 transition">›</button>
-                  </>
-                )}
-                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-                  {activeProject.gallery.map((_, index) => (
-                    <span key={index} className={`w-2 h-2 rounded-full ${ index === currentIndex ? "bg-gray-800" : "bg-gray-400"}`}></span>
-                  ))}
-                </div>
-              </div>
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
+    <div className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl overflow-y-auto max-h-[90vh] relative">
+      <div className="flex items-center justify-between border-b px-6 py-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{activeProject.title}</h2>
+        <button onClick={() => setActiveProject(null)} className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition"><i className="fas fa-xmark text-gray-700"></i></button>
+      </div>
 
-              <div className="flex flex-col space-y-6 order-3 md:order-1">  
-                {/* Objectives & description */}              
-                <div className="space-y-2">
-                  <p className="text-base text-gray-700 leading-relaxed">{activeProject.objectives}</p>
-                  <p className="text-sm text-gray-500 leading-relaxed">{activeProject.description}</p>
-                </div>
-                {/**Technologies */}
-                <div className="space-y-2">
-                  <span className="text-sm font-semibold text-gray-800">Technologies</span>
-                  <div className="flex flex-wrap gap-2">
-                    {activeProject.technologies.map((tech) => (
-                      <span key={tech} className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-medium shadow-sm">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-                {/* Collaborators */}
-                {activeProject.collaborators && activeProject.collaborators.length > 0 && (
-                  <div className="space-y-2">
-                    <span className="text-sm font-semibold text-gray-800">Collaborators</span>
-                    <div className="flex flex-wrap gap-3">
-                      {activeProject.collaborators.map((collab) => (
-                        <div key={collab.name} className="flex items-center gap-2 bg-gray-50 px-3 py-1 rounded-full shadow-sm">
-                          <span className="text-sm text-gray-600">{collab.name}</span>
-                          <a href={collab.link} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 transition" >
-                            {collab.type === "linkedin" ? (
-                              <i className="fab fa-linkedin text-lg"></i>
-                            ) : (
-                              <i className="fas fa-globe text-lg"></i>
-                            )}
-                            <i className="fas fa-arrow-up-right-from-square text-xs ml-1 text-gray-500"></i>
-                          </a>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6">
-                  <a href={activeProject.github}target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 text-sm font-medium transition shadow-md w-full sm:w-auto justify-center"><i className="fas fa-code-branch"></i>Source code</a>
-                  <a href={activeProject.orgLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900 underline font-medium transition w-full sm:w-auto justify-center">
-                    <i className="fas fa-building"></i>
-                    {activeProject.organization}
-                    <i className="fas fa-arrow-up-right-from-square text-xs text-gray-500"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-10">
+        <div className="relative">
+          <img src={activeProject.gallery[currentIndex]} alt="Gallery" className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"/>
+          {activeProject.gallery.length > 1 && (
+            <>
+              <button onClick={() => setCurrentIndex((prev) => prev === 0 ? activeProject.gallery.length - 1 : prev - 1) } className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-black bg-opacity-40 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-60 transition">‹</button>
+              <button onClick={() => setCurrentIndex((prev) => prev === activeProject.gallery.length - 1 ? 0 : prev + 1) } className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-black bg-opacity-40 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-60 transition">›</button>
+            </>
+          )}
+          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+            {activeProject.gallery.map((_, index) => (
+              <span key={index} className={`w-2 h-2 rounded-full ${ index === currentIndex ? "bg-gray-800" : "bg-gray-400" }`}></span>
+            ))}
           </div>
         </div>
-      )}
+
+        <div className="flex flex-col space-y-6">
+          {/* Objectives & description */}
+          <div className="space-y-2">
+            <p className="text-base text-gray-700 leading-relaxed">{activeProject.objectives}</p>
+            <p className="text-sm text-gray-500 leading-relaxed">{activeProject.description}</p>
+          </div>
+
+          {/* Technologies */}
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <span className="text-sm font-semibold text-gray-800">Technologies</span>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {activeProject.technologies.map((tech) => (
+                <span key={tech} className="text-xs bg-white border px-3 py-1 rounded-full shadow-sm">{tech}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Collaborators */}
+          {activeProject.collaborators && activeProject.collaborators.length > 0 && (
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <span className="text-sm font-semibold text-gray-800">Collaborators</span>
+              <div className="flex flex-wrap gap-3 mt-2">
+                {activeProject.collaborators.map((collab) => (
+                  <div key={collab.name} className="flex items-center gap-2 bg-white px-3 py-1 rounded-full shadow-sm">
+                    <span className="text-sm text-gray-600">{collab.name}</span>
+                    <a href={collab.link} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 transition" >
+                      {collab.type === "linkedin" ? (
+                        <i className="fab fa-linkedin text-lg"></i>
+                      ) : (
+                        <i className="fas fa-globe text-lg"></i>
+                      )}
+                      <i className="fas fa-arrow-up-right-from-square text-xs ml-1 text-gray-500"></i>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6">
+            <a href={activeProject.github}  target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 text-sm font-medium transition shadow-md w-full sm:w-auto justify-center"><i className="fas fa-code-branch"></i> Source code</a>
+            <a href={activeProject.orgLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900 underline font-medium transition w-full sm:w-auto justify-center">
+              <i className="fas fa-building"></i>
+              {activeProject.organization}
+              <i className="fas fa-arrow-up-right-from-square text-xs text-gray-500"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </section>
   )
 }
