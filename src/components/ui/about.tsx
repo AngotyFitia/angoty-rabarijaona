@@ -1,7 +1,52 @@
+import { useState } from "react"
+
 import { Button } from "@/components/ui/button"
+import toast from "react-hot-toast"
+import emailjs from "emailjs-com";
+
 
 export default function About() {
+  const [cvModalOpen, setCvModalOpen] = useState(false)
+  const [email, setEmail] = useState("")
+  const [nom, setNom] = useState("")
+  const [errorMessage, setErrorMessage] = useState("");
+  const handleSendCv = () => {
+    if (!nom || !email) {
+      setErrorMessage("Veuillez remplir tous les champs.");
+      return;
+    }
+  
+    if (!isValidEmail) {
+      setErrorMessage("Adresse email invalide.");
+      return;
+    }
+  
+    emailjs.send(
+      "service_y6e35rp",
+      "template_fenv5uw",
+      { to_email: email, to_name: nom },
+      "nyCuHCn8P7986n21j"
+    )
+    .then(() => {
+      toast.success(`The CV has been sent to your inbox.`);
+      setCvModalOpen(false);
+      setEmail("");
+      setNom("");
+      setErrorMessage(""); // on efface l'erreur si succès
+    })
+    .catch((error) => {
+      console.error("Erreur:", error);
+      setErrorMessage("Échec de l'envoi du CV. Vérifiez votre adresse email.");
+    });
+  };
+  
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.(fr|com)$/.test(email) && 
+                     (email.endsWith("@gmail.com") || email.endsWith(".fr"));
+  const canSend = nom.trim() !== "" && isValidEmail;
+
+
   return (
+    <>
     <section id="about" className="min-h-screen w-full bg-[#f9f9f9] px-6 md:px-12 py-16 md:py-20">
       <div className="text-center mb-12">
       <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-gray-900">
@@ -27,15 +72,10 @@ export default function About() {
               Let’s work together
             </Button>
           </a>
-          <a
-  href="/public/About Me.pdf"
-  download
->
 
-            <Button className="bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] transition-transform duration-300">
-              Download CV
+            <Button className="bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] transition-transform duration-300" onClick={() => setCvModalOpen(true)}>
+              Download CV 
             </Button>
-</a>
           </div>
         </div>
 
@@ -81,5 +121,68 @@ export default function About() {
         </div>
       </div>
     </section>
+
+{cvModalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
+      <button
+        onClick={() => setCvModalOpen(false)}
+        className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl"
+      >
+        ✕
+      </button>
+
+      {/* Header with icon */}
+      <div className="flex flex-col items-center mb-4">
+        <i className="fas fa-paper-plane text-black text-3xl mb-2"></i>
+        <h2 className="text-xl font-bold text-black">Receive the CV by email</h2>
+        <p className="text-sm text-gray-600 text-center">
+          The CV will be sent directly to your inbox.
+        </p>
+      </div>
+
+      {/* Input fields with icons */}
+      <div className="flex items-center border px-3 py-2 rounded mb-4">
+        <i className="fas fa-user text-gray-500 mr-2"></i>
+        <input
+          type="text"
+          placeholder="Your name"
+          value={nom}
+          onChange={(e) => setNom(e.target.value)}
+          className="flex-1 outline-none"
+        />
+      </div>
+
+      <div className="flex items-center border px-3 py-2 rounded mb-4">
+        <i className="fas fa-envelope text-gray-500 mr-2"></i>
+        <input
+          type="email"
+          placeholder="Your email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="flex-1 outline-none"
+        />
+      </div>
+
+      {/* Send button */}
+      <Button
+        className={`w-full ${canSend ? "bg-black text-white hover:bg-gray-800" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
+        onClick={handleSendCv}
+        disabled={!canSend}
+      >
+        Send
+      </Button>
+
+      {/* Error message */}
+      {errorMessage && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded relative mt-3 text-center">
+          <strong className="font-bold">Error:</strong>
+          <span className="ml-2">{errorMessage}</span>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+</>
   )
 }
