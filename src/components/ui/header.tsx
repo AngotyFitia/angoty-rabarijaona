@@ -5,7 +5,7 @@ import emailjs from "emailjs-com";
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const [, setScrollDirection] = useState<"down" | "up">("down")
+  const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down")
   const [cvModalOpen, setCvModalOpen] = useState(false)
   const [email, setEmail] = useState("")
   const [nom, setNom] = useState("")
@@ -99,7 +99,32 @@ export default function Header() {
           </div>
         )}
       </header>
+      <div className="fixed bottom-0 w-full z-40 flex flex-col items-center gap-2 mb-4" style={{ marginLeft: "-20px" }}>
+        {/* Indicateur Scroll */}
+        <div
+          className={`flex flex-col items-center text-gray-700 ${
+            scrollDirection === "down" ? "animate-bounce" : "animate-bounce-up"
+          }`}
+        >
+          {scrollDirection === "down" ? (
+            <>
+              <span className="text-sm">Scroll down</span>
+              <i className="fas fa-chevron-down text-lg"></i>
+            </>
+          ) : (
+            <>
+              <span className="text-sm">Scroll up</span>
+              <i className="fas fa-chevron-up text-lg"></i>
+            </>
+          )}
+        </div>
 
+        {/* Bandeau disponibilité */}
+        <div className="flex items-center gap-2 bg-white text-gray-900 text-sm px-4 py-1 rounded-full shadow-md">
+          <i className="fas fa-briefcase text-gray-700" style={{ color: "green" }}></i>
+          <span>Available for new projects</span>
+        </div>
+      </div>
       {cvModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
