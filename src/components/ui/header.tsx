@@ -5,7 +5,7 @@ import emailjs from "emailjs-com";
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const [scrollDirection, setScrollDirection] = useState<"down" | "up">("down")
+  const [, setScrollDirection] = useState<"down" | "up">("down")
   const [cvModalOpen, setCvModalOpen] = useState(false)
   const [email, setEmail] = useState("")
   const [nom, setNom] = useState("")
