@@ -53,7 +53,7 @@ export default function About() {
           {/* Colonne gauche : présentation */}
           <div className="space-y-6 self-center">
             <p className="mb-8 text-sm sm:text-base text-gray-600 text-center text-center md:text-left">
-              Hi! I'm <span className="font-semibold">Angoty RABARIJAONA</span>, a passionate Full‑stack Developer and Data Analyst. 
+              My name is <span className="font-semibold">Angoty</span>, a passionate Full‑stack Developer and Data Analyst. 
               I specialize in crafting modern web and mobile applications, while also leveraging data to uncover insights and drive smarter decisions. 
               With a strong focus on building responsive, user‑friendly digital experiences and applying analytical thinking to solve complex problems, 
               I bring together creativity and technical expertise to deliver impactful solutions.
