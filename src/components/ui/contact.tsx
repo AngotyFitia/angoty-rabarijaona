@@ -1,4 +1,6 @@
 import { useState } from "react";
+import emailjs from "emailjs-com";
+import toast from "react-hot-toast";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,10 +16,47 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const isValidEmail =
+    formData.email.endsWith("@gmail.com") || formData.email.endsWith(".fr");
+
+  // Button enabled only if all fields filled + email valid
+  const canSend =
+    formData.name.trim() !== "" &&
+    formData.subject.trim() !== "" &&
+    formData.message.trim() !== "" &&
+    isValidEmail;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    if (!canSend) {
+      toast.error("Please fill in all fields correctly.");
+      return;
+    }
+
+    emailjs
+      .send(
+        "service_y6e35rp", // Service ID
+        "template_rmazss5", // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: "angotyrabarijaona@gmail.com",
+        },
+        "nyCuHCn8P7986n21j" // Public Key
+      )
+      .then(() => {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error("Failed to send message. Please try again.");
+      });
   };
+  
 
   return (
     <section id="contact" className="py-16 px-6 md:px-12 bg-gray-50">
@@ -159,9 +198,14 @@ export default function Contact() {
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white text-gray-900"
           ></textarea>
 
-          <button
+<button
             type="submit"
-            className="w-full bg-black text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-800 transition"
+            disabled={!canSend}
+            className={`w-full px-6 py-3 rounded-lg shadow-md transition ${
+              canSend
+                ? "bg-black text-white hover:bg-gray-800"
+                : "bg-gray-400 text-gray-200 cursor-not-allowed"
+            }`}
           >
             Send Message
           </button>
