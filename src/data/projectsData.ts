@@ -4,18 +4,34 @@ export interface Collaborator {
   link: string
 }
 
+export interface ProjectRepositories {
+  frontend?: string
+  backend?: string
+  mobile?: string
+  source?: string
+}
+
 export interface ProjectType {
   id: number
   title: string
   description: string
   objectives: string
+
   image: string
   gallery: string[]
+
   category: string
+
   organization: string
   orgLink: string
+
   technologies: string[]
-  github: string
+
+  repositories?: ProjectRepositories
+
+  liveUrl?: string
+  videoUrl?: string
+
   collaborators?: Collaborator[]
 }
 
@@ -31,7 +47,9 @@ export const projects: ProjectType[] = [
     organization: "DGI Madagascar",
     orgLink: "https://www.impots.mg/accueil",
     technologies: ["React Native", "Spring Boot", "MongoDB", "DbSchema", "Figma", "GitHub"],
-    github: "https://github.com/digital-gov-mg/torolalana-portal-releases",
+    repositories: {
+      source: "https://github.com/digital-gov-mg/torolalana-portal-releases"
+    },
     collaborators: [
       { name: "Erick RAKOTOVOLOLONA", type: "linkedin", link: "https://linkedin.com/in/hajanirina-erick-rakotovololona-42518576" },
       { name: "Rivo RAMAROSON", type: "linkedin", link: "https://linkedin.com/in/rivo-ramaroson-30916a7a" },
@@ -49,8 +67,11 @@ export const projects: ProjectType[] = [
     organization: "Personal",
     orgLink: "https://angoty-rabarijaona.vercel.app",
     technologies: ["React", "Vite", "TypeScript", "TailwindCSS", "GitHub"],
-    github: "https://github.com/AngotyFitia/portfolio",
-    collaborators: []
+    repositories: {
+      source: "https://github.com/AngotyFitia/angoty-rabarijaona"
+    },
+    collaborators: [],
+    liveUrl: "https://angoty-rabarijaona.vercel.app"
   },
   {
     id: 3,
@@ -63,7 +84,9 @@ export const projects: ProjectType[] = [
     organization: "IT University",
     orgLink: "https://itu.mg",
     technologies: ["Django", "Pandas",],
-    github: "https://github.com/Angoty/Machine-Learning",
+    repositories: {
+      source: "https://github.com/Angoty/Machine-Learning"
+    },
     collaborators: []
   },  
   {
@@ -77,7 +100,9 @@ export const projects: ProjectType[] = [
     organization: "IT University",
     orgLink: "https://www.ituniversity-mg.com/page/",
     technologies: ["PHP (CodeIgniter)", "MySQL", "GitHub", "Adobe XD"],
-    github: "https://github.com/Angoty/S4-Takalo",
+    repositories: {
+      source: "https://github.com/Angoty/S4-Takalo"
+    },
     collaborators: [
       { name: "Toky Hary", type: "linkedin", link: "https://linkedin.com/in/toky-hary-ny-aina-rakotoarimanana-474740286" },
       { name: "Allan Tohaina", type: "linkedin", link: "https://linkedin.com/in/allan-tohaina-7769b3192" }
@@ -95,7 +120,11 @@ export const projects: ProjectType[] = [
     organization: "IT University",
     orgLink: "https://www.ituniversity-mg.com/page/",
     technologies: ["Ionic", "Angular", "Spring JSP", "PostgreSQL", "DbSchema", "GitHub", "Pencil"],
-    github: "https://github.com/AngotyFitia/mobile-artizana",
+    repositories: {
+      frontend: "https://github.com/AngotyFitia/backend-artizana",
+      backend: "https://github.com/AngotyFitia/frontend-artizana",
+      mobile: "https://github.com/AngotyFitia/mobile-artizana"
+    },
     collaborators: [
       { name: "Nancy ANDRIAMAHANINTSOA", type: "linkedin", link: "https://linkedin.com/in/nancy-elidah-andriamahanintsoa-63574a312" }
     ]
@@ -111,8 +140,53 @@ export const projects: ProjectType[] = [
     organization: "Personal",
     orgLink: "https://angoty-rabarijaona.vercel.app",
     technologies: [".NET", "C#", "Python", "SQLServer", "GitHub", "Pencil"],
-    github: "https://github.com/AngotyFitia/Avaratra-BackOffice",
+    repositories: {
+      frontend: "https://github.com/AngotyFitia/Avaratra-FrontOffice",
+      backend: "https://github.com/AngotyFitia/Avaratra-BackOffice"
+    },
     collaborators: []
+  },
+  {
+    id: 7,
+    title: "CineTrack",
+    description: "A web application that helps users track, rate, and review movies and TV shows",
+    objectives: "A full-stack movie and TV show tracking platform powered by the TMDB API, designed to help users manage their watchlists, track viewing progress, rate and review content, discover detailed movie information, and visualize personal viewing statistics through an intuitive and responsive interface.",
+    image: "/images/projects/cinetrack_login.png",
+    gallery: ["/images/projects/cinetrack_login.png", "/images/projects/cinetrack_inscription.png", "/images/projects/cinetrack_profile.png", "/images/projects/cinetrack_statistics.png"],
+    category: "Fullstack",
+    organization: "Université Côte d'Azur",
+    orgLink: "https://univ-cotedazur.fr",
+    technologies: ["React", "TypeScript", "Vite", "TanStack Query", "Supabase", "TMDB API", "Notion", "GitHub","Postman"],
+    repositories: {},
+    collaborators: [
+      { name: "To MAMIARILAZA", type: "linkedin", link: "https://www.linkedin.com/in/to-mamiarilaza-5a227a27a/" },
+      { name: "Tiavina RAMIANDRISOA", type: "linkedin", link: "https://www.linkedin.com/in/tiavina-ramiandrisoa-173807286/" },
+      { name: "Benjamina RAMAROSON", type: "linkedin", link: "https://www.linkedin.com/in/benjamina-ramaroson/" }
+    ],
+    videoUrl: "",
+  },
+  {
+    id: 8,
+    title: "Lottery OnChain",
+    description: "A decentralized blockchain lottery application built on Ethereum, allowing users to purchase tickets and participate in transparent on-chain prize draws.",
+    objectives: "Designed to explore smart contract development and decentralized application architecture, the platform enables secure lottery rounds, automated winner selection, wallet integration through MetaMask, and blockchain-based transaction management using Ethereum.",
+    image: "/images/projects/lottery_1.jfif",
+    gallery: ["/images/projects/lottery_1.jfif", "/images/projects/lottery_2.jfif", "/images/projects/lottery_3.jfif", "/images/projects/lottery_4.jfif", "/images/projects/lottery_5.jfif"],
+    category: "BlockChain",
+    organization: "IT University",
+    orgLink: "https://www.ituniversity-mg.com/page/",
+    technologies: ["Solidity", "Ethereum", "Hardhat", "Ethers.js", "JavaScript", "HTML", "CSS","MetaMask"],
+    repositories: {
+      source: "https://github.com/TiavinaMalalaniaina/LoterieBlockChain/"
+    },
+    collaborators: [
+      { name: "To MAMIARILAZA", type: "linkedin", link: "https://www.linkedin.com/in/to-mamiarilaza-5a227a27a/" },
+      { name: "Tiavina RAMIANDRISOA", type: "linkedin", link: "https://www.linkedin.com/in/tiavina-ramiandrisoa-173807286/" },
+      { name: "Benjamina RAMAROSON", type: "linkedin", link: "https://www.linkedin.com/in/benjamina-ramaroson/" },
+      { name: "Alpha Manjaka", type: "linkedin", link: "https://github.com/TiavinaMalalaniaina/LoterieBlockChain/" }
+    ],
+    liveUrl: "https://tiavinamalalaniaina.github.io/LoterieBlockChain/front/",
+    videoUrl: "https://www.loom.com/share/842cd047d7794d0db4744c00dc665bbb",
   }
 ]
 

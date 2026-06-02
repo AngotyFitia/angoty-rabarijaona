@@ -23,13 +23,13 @@ export default function Project() {
 
       <div className="flex flex-col gap-6 items-center mb-12">
         <div className="flex flex-wrap gap-3 justify-center">
-          {["All","Mobile","Web development","Fullstack","Backend","Data-science"].map((filter) => (
+          {["All","Mobile","Web development","Fullstack","Backend","Data-science", "BlockChain"].map((filter) => (
             <Button key={filter} onClick={() => setSelectedCategory(filter)} className={`px-4 py-2 rounded-full border ${ selectedCategory === filter ? "bg-black text-white" : "bg-transparent text-black"}`}>{filter}</Button>
           ))}
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">By:</span>
-          {["All Organizations","DGI Madagascar","Personal","IT University"].map((filter) => (
+          {["All Organizations","DGI Madagascar","Personal","IT University", "Université Côte d'Azur"].map((filter) => (
             <Button key={filter} onClick={() => setSelectedOrg(filter)} className={`px-4 py-2 rounded-full border ${ selectedOrg === filter ? "bg-black text-white" : "bg-transparent text-black" }`}>{filter}</Button>
           ))}
         </div>
@@ -77,81 +77,110 @@ export default function Project() {
       
       {/* Modal */}
       {activeProject && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
-    <div className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl overflow-y-auto max-h-[90vh] relative">
-      <div className="flex items-center justify-between border-b px-6 py-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{activeProject.title}</h2>
-        <button onClick={() => setActiveProject(null)} className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition"><i className="fas fa-xmark text-gray-700"></i></button>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 md:p-10">
-        <div className="relative">
-          <img src={activeProject.gallery[currentIndex]} alt="Gallery" className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"/>
-          {activeProject.gallery.length > 1 && (
-            <>
-              <button onClick={() => setCurrentIndex((prev) => prev === 0 ? activeProject.gallery.length - 1 : prev - 1) } className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-black bg-opacity-40 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-60 transition">‹</button>
-              <button onClick={() => setCurrentIndex((prev) => prev === activeProject.gallery.length - 1 ? 0 : prev + 1) } className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-black bg-opacity-40 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-60 transition">›</button>
-            </>
-          )}
-          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-            {activeProject.gallery.map((_, index) => (
-              <span key={index} className={`w-2 h-2 rounded-full ${ index === currentIndex ? "bg-gray-800" : "bg-gray-400" }`}></span>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col space-y-6">
-          {/* Objectives & description */}
-          <div className="space-y-2">
-            <p className="text-base text-gray-700 leading-relaxed">{activeProject.objectives}</p>
-            <p className="text-sm text-gray-500 leading-relaxed">{activeProject.description}</p>
-          </div>
-
-          {/* Technologies */}
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <span className="text-sm font-semibold text-gray-800">Technologies</span>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {activeProject.technologies.map((tech) => (
-                <span key={tech} className="text-xs bg-white border px-3 py-1 rounded-full shadow-sm">{tech}</span>
-              ))}
-            </div>
-          </div>
-
-          {/* Collaborators */}
-          {activeProject.collaborators && activeProject.collaborators.length > 0 && (
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <span className="text-sm font-semibold text-gray-800">Collaborators</span>
-              <div className="flex flex-wrap gap-3 mt-2">
-                {activeProject.collaborators.map((collab) => (
-                  <div key={collab.name} className="flex items-center gap-2 bg-white px-3 py-1 rounded-full shadow-sm">
-                    <span className="text-sm text-gray-600">{collab.name}</span>
-                    <a href={collab.link} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 transition" >
-                      {collab.type === "linkedin" ? (
-                        <i className="fab fa-linkedin text-lg"></i>
-                      ) : (
-                        <i className="fas fa-globe text-lg"></i>
-                      )}
-                      <i className="fas fa-arrow-up-right-from-square text-xs ml-1 text-gray-500"></i>
-                    </a>
-                  </div>
-                ))}
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-6">
+          <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-white rounded-xl shadow-xl">
+            <button onClick={() => setActiveProject(null)} className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
+              <i className="fas fa-times text-gray-700"></i>
+            </button>
+            <div className="px-6 md:px-10 py-6 border-b border-gray-100">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900"> {activeProject.title}</h2>
+              <div className="flex flex-wrap items-center gap-3 mt-3 text-sm text-gray-600">
+                <span className="px-3 py-1 bg-gray-100 rounded-lg text-gray-700">{activeProject.category}</span>
+                <a href={activeProject.orgLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gray-900 transition">
+                  <i className="fas fa-building"></i>
+                  {activeProject.organization}
+                  <i className="fas fa-arrow-up-right-from-square text-xs text-gray-400"></i>
+                </a>
               </div>
             </div>
-          )}
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6">
-            <a href={activeProject.github}  target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 text-sm font-medium transition shadow-md w-full sm:w-auto justify-center"><i className="fas fa-code-branch"></i> Source code</a>
-            <a href={activeProject.orgLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900 underline font-medium transition w-full sm:w-auto justify-center">
-              <i className="fas fa-building"></i>
-              {activeProject.organization}
-              <i className="fas fa-arrow-up-right-from-square text-xs text-gray-500"></i>
-            </a>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-6 md:px-10 py-8">
+              <div className="space-y-4">
+
+                <div className="relative rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                  <img src={activeProject.gallery[currentIndex]} className="w-full h-[260px] md:h-[420px] object-cover" alt={activeProject.title}/>
+                  {activeProject.gallery.length > 1 && (
+                    <>
+                      <button onClick={() => setCurrentIndex((prev) => prev === 0 ? activeProject.gallery.length - 1 : prev - 1 )} className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/60 text-white rounded-full hover:bg-black transition">‹</button>
+                      <button onClick={() => setCurrentIndex((prev) => prev === activeProject.gallery.length - 1 ? 0 : prev + 1 )} className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/60 text-white rounded-full hover:bg-black transition">›</button>
+                    </>
+                  )}
+                </div>
+
+                {activeProject.gallery.length > 1 && (
+                  <div className="flex justify-center gap-2">
+                    {activeProject.gallery.map((_, i) => (
+                      <span key={i} onClick={() => setCurrentIndex(i)} className={`w-2 h-2 rounded-full cursor-pointer transition ${ currentIndex === i ? "bg-black" : "bg-gray-300"}`}/>
+                    ))}
+                  </div>
+                )}
+
+              </div>
+
+              <div className="flex flex-col gap-6">
+                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                  <p className="text-gray-700 leading-relaxed">{activeProject.objectives}</p>
+                  <p className="text-gray-500 mt-3 text-sm leading-relaxed"> {activeProject.description}</p>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3"> Technologies</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {activeProject.technologies.map((tech) => (
+                      <span key={tech} className="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded-lg">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {(activeProject.collaborators?.length ?? 0) > 0 && (
+                  <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                    <h3 className="text-sm font-semibold text-gray-900 mb-3"> Collaborators</h3>
+                    <div className="space-y-2">
+
+                    {(activeProject.collaborators ?? []).map((c) => (
+                        <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
+                          <span className="text-sm text-gray-700">{c.name}</span>
+                          <i className="fas fa-arrow-up-right-from-square text-xs text-gray-400"></i>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3"> Links</h3>
+                  <div className="flex flex-wrap gap-3">
+
+                    {activeProject.repositories?.frontend && (
+                      <a href={activeProject.repositories.frontend} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition">Frontend</a>
+                    )}
+                    {activeProject.repositories?.source && (
+                      <a href={activeProject.repositories.source} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition">Git source</a>
+                    )}
+
+                    {activeProject.repositories?.backend && (
+                      <a href={activeProject.repositories.backend} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition"> Backend </a>
+                    )}
+
+                    {activeProject.repositories?.mobile && (
+                      <a href={activeProject.repositories.mobile} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition">Mobile</a>
+                    )}
+
+                    {activeProject.liveUrl && (
+                      <a href={activeProject.liveUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-black text-white rounded-lg text-sm hover:bg-gray-800 transition">Live demo</a>
+                    )}
+
+                    {activeProject.videoUrl && (
+                      <a href={activeProject.videoUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-900 text-white rounded-lg text-sm hover:bg-black transition">Video</a>
+                    )}
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
     </section>
   )
