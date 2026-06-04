@@ -187,6 +187,21 @@ export const projects: ProjectType[] = [
     ],
     liveUrl: "https://tiavinamalalaniaina.github.io/LoterieBlockChain/front/",
     videoUrl: "https://www.loom.com/share/842cd047d7794d0db4744c00dc665bbb",
+  },
+  {
+    id: 9,
+    title: "CookSmart",
+    description: "An AI-powered Android application that generates personalized recipes based on ingredients available at home, helping users cook smarter while reducing food waste.",
+    objectives: "Designed to combine mobile development and artificial intelligence, CookSmart allows users to enter available ingredients, select dietary preferences, recipe styles, and serving sizes, then receive detailed AI-generated recipes. The application also provides recipe history, favorites management, offline data persistence, and intelligent recipe regeneration.",
+    image: "/images/projects/cook_smart 4.jfif",
+    gallery: ["/images/projects/cook_smart 4.jfif", "/images/projects/cook_smart 3.jfif", "/images/projects/cook_smart 2.jfif", "/images/projects/cook_smart 1.jfif"],
+    category: "Mobile",
+    organization: "Personal",
+    orgLink: "https://angoty-rabarijaona.vercel.app/",
+    technologies: [ "Kotlin", "Material 3","Room Database", "Retrofit", "Gson", "Groq API", "Gemini API","Android Studio", "Github"],
+    repositories: {},
+    collaborators: [],
+    liveUrl: "https://drive.google.com/file/u/0/d/1py7YWNaofv6OVqs459Vm7WeO83ObKb4A/view?usp=sharing&usp=embed_facebook&pli=1",
   }
 ]
 

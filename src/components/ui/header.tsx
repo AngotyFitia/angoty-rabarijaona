@@ -99,13 +99,8 @@ export default function Header() {
           </div>
         )}
       </header>
-      <div className="fixed bottom-0 w-full z-40 flex flex-col items-center gap-2 mb-4" style={{ marginLeft: "-20px" }}>
-        {/* Indicateur Scroll */}
-        <div
-          className={`flex flex-col items-center text-gray-700 ${
-            scrollDirection === "down" ? "animate-bounce" : "animate-bounce-up"
-          }`}
-        >
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2">
+        <div className={`flex flex-col items-center text-gray-700 ${ scrollDirection === "down" ? "animate-bounce" : "animate-bounce-up"}`}>
           {scrollDirection === "down" ? (
             <>
               <span className="text-sm">Scroll down</span>
@@ -119,9 +114,8 @@ export default function Header() {
           )}
         </div>
 
-        {/* Bandeau disponibilité */}
-        <div className="flex items-center gap-2 bg-white text-gray-900 text-sm px-4 py-1 rounded-full shadow-md">
-          <i className="fas fa-briefcase text-gray-700" style={{ color: "green" }}></i>
+        <div className="flex items-center gap-2 bg-white text-gray-900 text-sm px-4 py-1 rounded-full shadow-md whitespace-nowrap">
+          <i className="fas fa-briefcase" style={{ color: "green" }}></i>
           <span>Available for new projects</span>
         </div>
       </div>

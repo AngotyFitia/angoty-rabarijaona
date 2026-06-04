@@ -21,13 +21,12 @@ export default function Contact() {
       .send(
         "service_y6e35rp",
         "template_rmazss5",
-        { from_name: formData.name, from_email: formData.email, subject: formData.subject, message: formData.message, to_email: "angotyrabarijaona@gmail.com",
-        },
+        { from_name: formData.name, reply_to: formData.email, subject: formData.subject, message: formData.message, to_email: "angotyrabarijaona@gmail.com"},
         "nyCuHCn8P7986n21j" 
       )
       .then(() => {
         toast.success("Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        // setFormData({ name: "", email: "", subject: "", message: "" });
       })
       .catch((error) => {
         console.error("Error:", error);
