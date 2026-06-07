@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# Personal Portfolio – Angoty Rabarijaona
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern personal developer portfolio built to showcase my projects, skills, and experience as a front-end developer.
 
-Currently, two official plugins are available:
+The goal of this project is to deliver a fast, responsive, and visually polished experience while highlighting my work in a clean and professional way.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live website: [angoty-rabarijaona.vercel.app](https://angoty-rabarijaona.vercel.app)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview
 
-## Expanding the ESLint configuration
+This portfolio serves as a digital representation of my work as a developer.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+It includes selected projects, technical skills, background information, and a contact system.
+The focus is on clarity, performance, and user experience across all devices.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project is built using modern front-end technologies:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+* React – Component-based UI development
+* TypeScript – Type-safe development
+* Vite – Fast development and optimized builds
+* Tailwind CSS – Styling and responsive design
+* shadcn/ui – Reusable and accessible UI components
+* EmailJS – Client-side email sending for the contact form
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features
+
+* Fully responsive design (mobile, tablet, desktop)
+* Smooth animations and transitions
+* Projects showcase section
+* Dynamic UI components
+* Contact form with email integration
+* SEO optimization (meta tags + structured data)
+* Deployed with continuous deployment workflow
+
+---
+
+## Project Structure
+
+The project is organized in a modular and scalable way:
+
+* `src/components` – Reusable UI components
+* `src/assets` – Static assets (images, icons, etc.)
+* `src/lib` – Utility functions and helpers
+* `src/styles` – Global styles and configurations
+
+---
+
+## Design & UX
+
+The design focuses on:
+
+* Clean and modern UI
+* Smooth navigation experience
+* Clear visual hierarchy
+* Responsive layouts across all screen sizes
+* Performance-oriented rendering
+
+The interface is inspired by modern developer portfolios and UI design systems.
+
+---
+
+## Contact
+
+You can reach me through the contact form available on the portfolio or via the social links provided in the website.
+
+---
+
+## Notes
+
+This project is actively maintained and regularly improved with:
+
+* UI/UX refinements
+* Performance optimizations
+* SEO enhancements
+* New project additions
+
