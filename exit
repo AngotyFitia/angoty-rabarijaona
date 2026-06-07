@@ -1,0 +1,30 @@
+[33m6386278[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix: replace mobile menu with switch languages
+[33m8b4bf8f[m feat: add language switch and multilingual support for header and home
+[33m71dbd9f[m chore(readme): add project documentation
+[33mc610b35[m chore: improve SEO meta tags and add structured data
+[33m2edfb17[m fix: add email redirection in message sender
+[33m4dbc546[m feat: add new project in Selected Projects section
+[33m6873c6d[m feat: add new projects in Selected Projects section
+[33mfc6199d[m feat: add dynamic smiley animation to welcome title
+[33mf41fa6f[m feat: re-add availability
+[33m7edac90[m refactor: redesign project modal with better IHM
+[33m5cb333f[m chore: remove a file(unused file)
+[33m46a2991[m refactor: global code cleanup and reorganization
+[33mf5074c0[m feat: add download CV into about section
+[33m978bcac[m fix: deleted unused variable in online app
+[33m099f574[m feat: 	CV functionnality by EmailJs and external email sending
+[33m8b3605a[m feat: add CV functionnality
+[33m875289b[m feat: add three last section - changing image technologies into icon
+[33m702c169[m feat: add scroll functionnality - availability
+[33md6ab35c[m feat: update logo-profile
+[33maf6c084[m feat: update language rank
+[33mbd4c24e[m feat: add hardskills and softskills
+[33md6513a9[m feat: update link-user-profile
+[33m6b2add5[m chore: project-emplacement
+[33meda2041[m feat: project-responsive-element-modal
+[33me1fb2f2[m feat: project-responsive implement add data to json
+[33m85eb766[m feat: project-section-implement
+[33mb05c793[m feat: project-section-implement
+[33m6e30ae8[m feat: responsive-design about&home
+[33m1eba280[m setting-app
+[33m6ec7836[m Initial commit
