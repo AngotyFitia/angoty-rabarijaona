@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
 import toast from "react-hot-toast";
 
 export default function Contact() {
@@ -7,31 +6,49 @@ export default function Contact() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const isValidEmail =formData.email.endsWith("@gmail.com") || formData.email.endsWith(".fr");
+  const isValidEmail =formData.email.endsWith("@gmail.com") || formData.email.endsWith("@hotmail.com") || formData.email.endsWith("@outlook.com") || formData.email.endsWith("@live.com") || formData.email.endsWith("@yahoo.com");
 
   const canSend = formData.name.trim() !== "" && formData.subject.trim() !== "" && formData.message.trim() !== "" &&isValidEmail;
+
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!canSend) {
-      toast.error("Please fill in all fields correctly.");
-      return;
+  e.preventDefault();
+
+  if (!canSend) {
+    toast.error("Please fill in all fields correctly.");
+    return;
+  }
+
+  const subject = encodeURIComponent(formData.subject);
+
+  const body = encodeURIComponent(
+  `${formData.message}`
+    );
+
+    let composeUrl = "";
+
+    if (formData.email.endsWith("@gmail.com")) {
+      composeUrl =
+        `https://mail.google.com/mail/?view=cm&fs=1&to=angotyrabarijaona@gmail.com&su=${subject}&body=${body}`;
+    } else if (
+      formData.email.endsWith("@outlook.com") ||
+      formData.email.endsWith("@hotmail.com") ||
+      formData.email.endsWith("@live.com")
+    ) {
+      composeUrl =
+        `https://outlook.live.com/mail/0/deeplink/compose?to=angotyrabarijaona@gmail.com&subject=${subject}&body=${body}`;
+    } else if (formData.email.endsWith("@yahoo.com")) {
+      composeUrl =
+        `https://compose.mail.yahoo.com/?to=angotyrabarijaona@gmail.com&subject=${subject}&body=${body}`;
+    } else {
+      composeUrl =
+        `mailto:angotyrabarijaona@gmail.com?subject=${subject}&body=${body}`;
     }
 
-    emailjs
-      .send(
-        "service_y6e35rp",
-        "template_rmazss5",
-        { from_name: formData.name, reply_to: formData.email, subject: formData.subject, message: formData.message, to_email: "angotyrabarijaona@gmail.com"},
-        "nyCuHCn8P7986n21j" 
-      )
-      .then(() => {
-        toast.success("Message sent successfully!");
-        // setFormData({ name: "", email: "", subject: "", message: "" });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        toast.error("Failed to send message. Please try again.");
-      });
+    window.open(composeUrl, "_blank");
+
+    setFormData({ name: "", email: "", subject: "", message: "",});
+
+    toast.success("Email draft opened successfully!");
   };
   
 
