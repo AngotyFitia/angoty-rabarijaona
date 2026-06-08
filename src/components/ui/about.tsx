@@ -61,7 +61,7 @@ export default function About() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a href="#contact">
-                <Button className="w-auto bg-black text-white rounded-full px-6 py-3 shadow-md hover:bg-gray-800 transition-transform duration-300 animate-bounce"> Let’s talk</Button>
+                <Button className="w-auto bg-black text-white rounded-full px-6 py-3 shadow-md hover:bg-gray-800 transition-transform duration-300" style={{ animation: "glow 2s infinite" }}>Let’s talk</Button>
               </a>
               <Button className="bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] transition-transform duration-300" onClick={() => setCvModalOpen(true)}>Download CV </Button>
             </div>
