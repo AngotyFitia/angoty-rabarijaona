@@ -10,24 +10,45 @@ export default function Header() {
   const [email, setEmail] = useState("")
   const [nom, setNom] = useState("")
   const [errorMessage, setErrorMessage] = useState("");
+  const [madagascarTime, setMadagascarTime] = useState("");
 
 
   useEffect(() => {
+    // ===== SCROLL DETECTION =====
     const handleScroll = () => {
-      const scrollTop = window.scrollY
-      const windowHeight = window.innerHeight
-      const docHeight = document.documentElement.scrollHeight
-
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+  
       if (scrollTop + windowHeight >= docHeight - 10) {
-        setScrollDirection("up")
+        setScrollDirection("up");
       } else {
-        setScrollDirection("down")
+        setScrollDirection("down");
       }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    };
+  
+    // ===== TIME UPDATE (MADAGASCAR) =====
+    const updateTime = () => {
+      const time = new Date().toLocaleTimeString("fr-FR", {
+        timeZone: "Indian/Antananarivo",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+  
+      setMadagascarTime(time);
+    };
+  
+    handleScroll();
+    updateTime();
+  
+    window.addEventListener("scroll", handleScroll);
+    const interval = setInterval(updateTime, 1000);
+  
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(interval);
+    };
+  }, []);
 
   const handleSendCv = () => {
     if (!nom || !email) {
@@ -71,6 +92,17 @@ export default function Header() {
  
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center gap-3 text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+              <span className="flex items-center gap-1">
+                <i className="fas fa-clock text-gray-500"></i>
+                {madagascarTime} (GMT+3)
+              </span>
+
+              <span className="flex items-center gap-1 border-l pl-2 border-gray-300">
+                <i className="fas fa-map-marker-alt text-gray-500"></i>
+                Antananarivo, Madagascar
+              </span>
+            </div>
             <nav className="flex space-x-6">
               <a href="#home">Home</a>
               <a href="#about">About</a>
@@ -79,7 +111,8 @@ export default function Header() {
               <a href="#services">Services</a>
               <a href="#contact">Contact</a>
             </nav>
-            <Button className="bg-black text-white hover:bg-gray-800" onClick={() => setCvModalOpen(true)}>CV</Button>
+            <Button className="bg-black text-white hover:bg-gray-800" onClick={() => setCvModalOpen(true)}>Download CV</Button>
+            
           </div>
           <div className="md:hidden">
             <button onClick={() => setOpen(!open)} className="text-[#1a1a1a] focus:outline-none">☰</button>
@@ -95,7 +128,12 @@ export default function Header() {
             <a href="#skills" className="flex items-center justify-center gap-2"><i className="fas fa-bolt"></i> <span>Skills</span></a>
             <a href="#services" className="flex items-center justify-center gap-2"><i className="fas fa-briefcase"></i> <span>Services</span></a>
             <a href="#contact" className="flex items-center justify-center gap-2"><i className="fas fa-envelope"></i> <span>Contact</span></a>
-            <Button className="w-full bg-black text-white hover:bg-gray-800" onClick={() => setCvModalOpen(true)}><i className="fas fa-file-download"></i><span>CV</span></Button>
+            <div className="flex justify-center">
+              <Button className="bg-black text-white hover:bg-gray-900 px-5 py-2  text-sm flex items-center gap-2" onClick={() => setCvModalOpen(true)}>
+                <i className="fas fa-file-download"></i>Download CV
+              </Button>
+            </div>            
+          <div className="md:hidden text-[11px] text-gray-600 text-center py-1"> <div>{madagascarTime} • Antananarivo (GMT+3)</div></div>
           </div>
         )}
       </header>

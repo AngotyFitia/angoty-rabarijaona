@@ -11,14 +11,14 @@ export default function Footer() {
             <p className="text-sm mb-2">Crafting elegant digital experiences with a focus on performance and design.</p>
             <p className="text-sm">Currently pursuing Master II at IT University, Antananarivo.</p>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-3">Connect</h3>
-            <div className="flex gap-4">
-              <a href="https://linkedin.com/in/angoty-rabarijaona" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-linkedin"></i></a>
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <a href="mailto:angotyrabarijaona@gmail.com" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fas fa-envelope"></i></a>
+              <a href="https://wa.me/261375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-whatsapp"></i></a>
+              <a href="https://linkedin.com/in/angoty-rabarijaona" target="_blank" rel="noopener noreferrer"className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-linkedin"></i></a>
               <a href="https://github.com/angotyfitia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-github"></i></a>
               <a href="https://github.com/angoty" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-github"></i></a>
-              <a href="https://wa.me/261375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-whatsapp"></i></a>
-              <a href="mailto:angotyrabarijaona@gmail.com" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"> <i className="fas fa-envelope"></i></a>
             </div>
           </div>
           <div>
@@ -32,11 +32,24 @@ export default function Footer() {
               <li><a href="#contact" className="hover:text-gray-600 transition">Contact</a></li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-3">Get in touch</h3>
-            <p className="text-sm">angotyrabarijaona@gmail.com</p>
-            <p className="text-sm">+261 37 58 098 27</p>
-            <p className="text-sm">Itaosy, Antananarivo, Madagascar</p>
+          <div className="text-center md:text-left">
+            <h3 className="text-lg font-semibold mb-4">Get in touch</h3>
+            <div className="space-y-3 text-sm text-gray-700 flex flex-col items-center md:items-start">
+              <a href="mailto:angotyrabarijaona@gmail.com" className="flex items-center justify-center md:justify-start gap-3 hover:text-black transition">
+                <i className="fas fa-envelope w-4"></i>
+                <span className="break-all">angotyrabarijaona@gmail.com</span>
+              </a>
+              <a href="tel:+261375809827" className="flex items-center justify-center md:justify-start gap-3 hover:text-black transition">
+                <i className="fas fa-phone w-4"></i>
+                <span>+261 37 58 098 27</span>
+              </a>
+              <div className="flex items-center justify-center md:justify-start gap-3">
+                <i className="fas fa-map-marker-alt w-4 text-gray-500"></i>
+                <span className="text-center md:text-left">
+                  Itaosy, Antananarivo, Madagascar
+                </span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="mt-12 border-t border-gray-300 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">

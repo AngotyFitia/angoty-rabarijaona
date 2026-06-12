@@ -92,10 +92,10 @@ export default function Contact() {
             </div>
             <div className="flex gap-4">
               <a href="mailto:angotyrabarijaona@gmail.com" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fas fa-envelope"></i></a>
+              <a href="https://wa.me/267375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-whatsapp"></i></a>
               <a href="https://linkedin.com/in/angoty-rabarijaona" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-linkedin"></i></a>
               <a href="https://github.com/angotyfitia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-github"></i></a>
               <a href="https://github.com/angoty" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-github"></i></a>
-              <a href="https://wa.me/267375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-whatsapp"></i></a>
             </div>
           </div>
         </div>
