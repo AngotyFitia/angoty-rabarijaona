@@ -2,6 +2,7 @@ export default function Footer() {
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" })
     }
+    const year = new Date().getFullYear();
 
     return (
       <footer className="bg-white text-black py-12 px-6 md:px-12 border-t border-gray-200 relative">
@@ -53,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-gray-300 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-          <span className="text-center md:text-left"> © 2025 — Crafted by Angoty RABARIJAONA </span>
+          <span className="text-center md:text-left"> © 2025-{year} — Angoty RABARIJAONA </span>
           <button onClick={scrollToTop} className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
             <i className="fas fa-arrow-up"></i>
             <span>Back to Top</span>

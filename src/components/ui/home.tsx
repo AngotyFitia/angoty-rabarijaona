@@ -22,7 +22,7 @@ export default function Home() {
       <div className="mt-4 md:mt-0 space-y-6 order-2 md:order-1">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#1a1a1a] text-center md:text-left">Welcome <span className="inline-block animate-bounce">{smiles[index]}</span></h1>
         <p className="text-base sm:text-lg md:text-xl text-[#555555] max-w-lg mx-auto md:mx-0 text-center md:text-left animate-slideUp delay-400">
-          Full‑stack Developer & Data Analyst creating modern, elegant, and impactful digital solutions.
+        Software engineer focused on full-stack development and data analysis, building scalable applications and impactful digital solutions.
         </p>
         
         <div className="flex flex-row gap-4 justify-center md:justify-start animate-fadeIn delay-600">
