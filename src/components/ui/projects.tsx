@@ -23,7 +23,7 @@ export default function Project() {
 
       <div className="flex flex-col gap-6 items-center mb-12">
         <div className="flex flex-wrap gap-3 justify-center">
-          {["All","Mobile","Web development","Fullstack","Backend","Data-science", "BlockChain"].map((filter) => (
+          {["All","Mobile","Web development","Fullstack","Backend","Data-science", "BlockChain", "Cloud / DevOps"].map((filter) => (
             <Button key={filter} onClick={() => setSelectedCategory(filter)} className={`px-4 py-2 rounded-full border ${ selectedCategory === filter ? "bg-black text-white" : "bg-transparent text-black"}`}>{filter}</Button>
           ))}
         </div>
@@ -69,6 +69,7 @@ export default function Project() {
                       <span className="font-medium">{project.category}</span>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -92,6 +93,12 @@ export default function Project() {
                   <i className="fas fa-arrow-up-right-from-square text-xs text-gray-400"></i>
                 </a>
               </div>
+              {activeProject.projectRole && (
+                <div className="mt-3 text-sm">
+                  <span className="text-gray-500">My role:</span>{" "}
+                  <span className="font-semibold text-gray-800">{activeProject.projectRole}</span>
+                </div>
+              )}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-6 md:px-10 py-8">
@@ -116,13 +123,12 @@ export default function Project() {
                 )}
 
               </div>
-
+              
               <div className="flex flex-col gap-6">
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
                   <p className="text-gray-700 leading-relaxed">{activeProject.objectives}</p>
                   <p className="text-gray-500 mt-3 text-sm leading-relaxed"> {activeProject.description}</p>
                 </div>
-
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
                   <h3 className="text-sm font-semibold text-gray-900 mb-3"> Technologies</h3>
                   <div className="flex flex-wrap gap-2">
@@ -131,26 +137,28 @@ export default function Project() {
                     ))}
                   </div>
                 </div>
-
-                {(activeProject.collaborators?.length ?? 0) > 0 && (
-                  <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-                    <h3 className="text-sm font-semibold text-gray-900 mb-3"> Collaborators</h3>
-                    <div className="space-y-2">
-
+                <div className="space-y-2">
                     {(activeProject.collaborators ?? []).map((c) => (
-                        <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
-                          <span className="text-sm text-gray-700">{c.name}</span>
-                          <i className="fas fa-arrow-up-right-from-square text-xs text-gray-400"></i>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
+                      <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="grid grid-cols-[1fr_180px_24px] items-center px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
+                        <div className="min-w-0">
+                          <span className="text-sm font-medium text-gray-700 truncate block">
+                            {c.name}
+                          </span>
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          <span className="text-gray-400">Role: </span>
+                          <span className="text-gray-600">{c.role}</span>
+                        </div>
+                        <div className="flex justify-end">
+                          <i className="fas fa-arrow-up-right-from-square text-xs text-gray-400" />
+                        </div>
+                      </a>
+                    ))}
+                </div>
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
                   <h3 className="text-sm font-semibold text-gray-900 mb-3"> Links</h3>
                   <div className="flex flex-wrap gap-3">
-
+                  
                     {activeProject.repositories?.frontend && (
                       <a href={activeProject.repositories.frontend} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition">Frontend</a>
                     )}
@@ -173,7 +181,6 @@ export default function Project() {
                     {activeProject.videoUrl && (
                       <a href={activeProject.videoUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-900 text-white rounded-lg text-sm hover:bg-black transition">Video</a>
                     )}
-
                   </div>
                 </div>
               </div>
@@ -181,7 +188,6 @@ export default function Project() {
           </div>
         </div>
       )}
-
     </section>
   )
 }
