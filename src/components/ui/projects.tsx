@@ -23,7 +23,7 @@ export default function Project() {
 
       <div className="flex flex-col gap-6 items-center mb-12">
         <div className="flex flex-wrap gap-3 justify-center">
-          {["All","Mobile","Web development","Fullstack","Backend","Data-science", "BlockChain", "Cloud / DevOps"].map((filter) => (
+          {["All","Mobile Application","Web Application","Desktop Application", "Data-science", "BlockChain", "Cloud / DevOps", "Cybersecurity"].map((filter) => (
             <Button key={filter} onClick={() => setSelectedCategory(filter)} className={`px-4 py-2 rounded-full border ${ selectedCategory === filter ? "bg-black text-white" : "bg-transparent text-black"}`}>{filter}</Button>
           ))}
         </div>
