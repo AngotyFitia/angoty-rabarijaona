@@ -110,14 +110,14 @@ export type TechSkill = {
       icon: "fas fa-lightbulb" 
     },
     { 
-      name: "Teamwork", 
-      description: "Collaborating efficiently within diverse teams.", 
-      icon: "fas fa-users" 
+      name: "Critical Thinking", 
+      description: "Ability to analyze situations logically and make sound decisions independently.", 
+      icon: "fas fa-brain" 
     },
     { 
-      name: "Communication", 
-      description: "Clear and structured communication, both written and verbal.", 
-      icon: "fas fa-comments" 
+      name: "Time Management", 
+      description: "Organizing tasks efficiently and meeting deadlines with discipline.", 
+      icon: "fas fa-clock" 
     },
     { 
       name: "Adaptability", 
