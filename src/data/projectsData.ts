@@ -381,6 +381,22 @@ export const projects: ProjectType[] = [
     },
     collaborators: [],
     projectRole: "Full-Stack Developer"
-  }
+  },
+  {
+    id: 18,
+    title: "Manufacturing Management System",
+    description: "A web-based application designed to manage product manufacturing workflows, including component tracking, recipe composition, and automated primary key generation.",
+    objectives: "This project focuses on digitalizing the production process. It allows administrators to define products, register components with units and prices, and build recipes linking products to their required components. The system automatically generates unique primary keys for each entity, ensures data consistency, and calculates product costs based on component quantities. JSP pages provide a user interface for managing data and visualizing production details.",
+    image: "",
+    gallery: [],
+    category: "Desktop Application",
+    organization: "Personal",
+    orgLink: "https://angoty-rabarijaona.vercel.app",
+    technologies: [ "Java", "JDBC", "Oracle Database", "JSP", "Servlets" ],
+    repositories: {},
+    collaborators: [],
+    projectRole: "Backend Developer & Database Designer",
+    isPrivate: true
+  }  
 ]
 
