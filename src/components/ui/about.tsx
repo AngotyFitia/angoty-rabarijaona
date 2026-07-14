@@ -92,8 +92,8 @@ export default function About() {
                 <p className="mt-2 text-sm text-[#555555]">Education</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#000000] text-white text-lg sm:text-2xl font-bold shadow-md">1</div>
-                <p className="mt-2 text-sm text-[#555555]">Years Exp.</p>
+                <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#000000] text-white text-lg sm:text-2xl font-bold shadow-md">2+</div>
+                <p className="mt-2 text-sm text-[#555555]">Years Practice</p>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#000000] text-white text-lg sm:text-2xl font-bold shadow-md">15+</div>

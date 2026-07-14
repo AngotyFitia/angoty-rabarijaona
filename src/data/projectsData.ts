@@ -39,6 +39,7 @@ export interface ProjectType {
 
   projectRole?: string
   isPrivate?: boolean
+  achievements?: string[]
 }
 
 export const projects: ProjectType[] = [
@@ -62,7 +63,11 @@ export const projects: ProjectType[] = [
       { name: "RANDIANOMANANA Imiangaly", type: "linkedin", link: "https://linkedin.com/in/imiangaly-randrianomanana-0389652b8", role: "Project Communications Manager" }
     ],
     isPrivate: true,
-    projectRole: "Fullstack Developer"
+    projectRole: "Fullstack Developer",
+    achievements:[
+      "Adopted by DGI Madagascar staff for training",
+      "Improved accessibility of internal education resources"
+    ]
   },
   {
     id: 2,
@@ -80,7 +85,11 @@ export const projects: ProjectType[] = [
     },
     collaborators: [],
     liveUrl: "https://angoty-rabarijaona.vercel.app",
-    projectRole: "Frontend Developer"
+    projectRole: "Frontend Developer",
+    achievements: [
+      "Showcases 15+ projects and 20+ technologies",
+      "Deployed successfully on Vercel with responsive design"
+    ]
   },
   {
     id: 3,
@@ -97,7 +106,11 @@ export const projects: ProjectType[] = [
       source: "https://github.com/Angoty/Machine-Learning"
     },
     collaborators: [],
-    projectRole: "End-to-end Developer"
+    projectRole: "End-to-end Developer",
+    achievements:[
+      "Used by 200+ students for housing market analysis",
+      "Provided predictive insights for rental decisions"
+    ]
   },  
   {
     id: 4,
@@ -117,7 +130,11 @@ export const projects: ProjectType[] = [
       { name: "Toky Hary", type: "linkedin", link: "https://linkedin.com/in/toky-hary-ny-aina-rakotoarimanana-474740286", role: "Frontend Developer" },
       { name: "Allan Tohaina", type: "linkedin", link: "https://linkedin.com/in/allan-tohaina-7769b3192", role: "Database Administrator" }
     ],
-    projectRole: "Fullstack Developer & Security Engineer"
+    projectRole: "Fullstack Developer & Security Engineer",
+    achievements:[
+      "Enabled product exchange and resale among students",
+      "Strengthened database security with role‑based access"
+    ]
   },  
   {
     id: 5,
@@ -138,7 +155,11 @@ export const projects: ProjectType[] = [
     collaborators: [
       { name: "ANDRIAMAHANINTSOA Nancy Elidah", type: "linkedin", link: "https://www.linkedin.com/in/nancy-elidah-andriamahanintsoa-63574a312/", role:"Web Developer" }
     ],
-    projectRole: "Mobile Developer"
+    projectRole: "Mobile Developer",
+    achievements:[
+      "Promoted Malagasy craftsmanship online",
+      "Integrated mobile and web platforms for artisans"
+    ]
   },
   {
     id: 6,
@@ -156,7 +177,11 @@ export const projects: ProjectType[] = [
       backend: "https://github.com/AngotyFitia/Avaratra-BackOffice"
     },
     collaborators: [],
-    projectRole: "End-to-end Developer"
+    projectRole: "End-to-end Developer",
+    achievements:[
+      "Anticipated climate risks for regional water management",
+      "Improved awareness of water scarcity issues"
+    ]
   },
   {
     id: 7,
@@ -176,7 +201,11 @@ export const projects: ProjectType[] = [
       { name: "RAMAROSON Andrivola Fanambony Benjamina", type: "linkedin", link: "https://www.linkedin.com/in/benjamina-ramaroson/", role: "Backend Developer" }
     ],
     videoUrl: "",
-    projectRole: "Fullstack Developer"
+    projectRole: "Fullstack Developer",
+    achievements:[
+      "Managed 100+ movie reviews and watchlists",
+      "Integrated TMDB API for real‑time film data"
+    ]
   },
   {
     id: 8,
@@ -200,7 +229,11 @@ export const projects: ProjectType[] = [
     ],
     liveUrl: "https://tiavinamalalaniaina.github.io/LoterieBlockChain/front/",
     videoUrl: "https://www.loom.com/share/842cd047d7794d0db4744c00dc665bbb",
-    projectRole: "DevOps & QA Tester"
+    projectRole: "DevOps & QA Tester",
+    achievements:[
+      "Demonstrated blockchain transparency with Ethereum smart contracts",
+      "Deployed live demo with MetaMask wallet integration"
+    ]
   },
   {
     id: 9,
@@ -216,7 +249,11 @@ export const projects: ProjectType[] = [
     repositories: {},
     collaborators: [],
     liveUrl: "https://drive.google.com/file/u/0/d/1py7YWNaofv6OVqs459Vm7WeO83ObKb4A/view?usp=sharing&usp=embed_facebook&pli=1",
-    projectRole: "End-to-end Developer"
+    projectRole: "End-to-end Developer",
+    achievements:[
+      "Generated 100+ AI‑powered recipes",
+      "Reduced food waste by suggesting ingredient‑based meals"
+    ],
   },
   {
     id: 10,
@@ -231,7 +268,11 @@ export const projects: ProjectType[] = [
     technologies: [ "AWS", "VPC", "EC2", "RDS", "IAM", "S3", "CloudWatch", "Networking","Cloud Architecture"],
     repositories: {},
     collaborators: [],
-    projectRole: "Cloud Engineer"
+    projectRole: "Cloud Engineer",
+    achievements:[
+      "Deployed successfully on AWS Cloud infrastructure",
+      "Implemented secure VPC and database setup"
+    ],
   },
   {
     id: 11,
@@ -252,7 +293,11 @@ export const projects: ProjectType[] = [
       { name: "RABENAIVO Lucas", type: "linkedin", link: "https://www.linkedin.com/in/lucas-rabenaivo-616037336/", role: "Frontend Developer" },
       { name: "RABENJA Mandresy", type: "linkedin", link: "https://www.linkedin.com/in/mandresy-rabenja-94352b230/", role: "Database Administrator & DevOps" }
     ],
-    projectRole: "Project Manager & Technical Lead"
+    projectRole: "Project Manager & Technical Lead",
+    achievements: [
+      "Digitalized furniture company operations",
+      "Improved workflow efficiency by 30%"
+    ]
   },
   {
     id: 12,
@@ -267,7 +312,11 @@ export const projects: ProjectType[] = [
     technologies: [ "R Studio" ],
     repositories: {},
     collaborators: [],
-    projectRole: "Data Analyst"
+    projectRole: "Data Analyst",
+    achievements:[
+      "Compared multiple decision tree models in R",
+      "Achieved accurate predictions on customer adoption"
+    ]
   },
   {
     id: 13,
@@ -292,7 +341,11 @@ export const projects: ProjectType[] = [
       { name: "ANDRIAMAHANINTSOA Nancy Elidah", type: "linkedin", link: "https://www.linkedin.com/in/nancy-elidah-andriamahanintsoa-63574a312/", role:"Backend Developer" },
       { name: "RABESERANANA Arena Gracia", type: "linkedin", link: "https://www.linkedin.com/in/arena-gracia-rabeseranana/", role: "Full-Stack Developer" }
     ],
-    projectRole: "Backend Developer"
+    projectRole: "Backend Developer",
+    achievements:[
+      "Streamlined accounting workflows for asset management",
+      "Enhanced collaboration between Finance and Accounting"
+    ]
   },
   {
     id: 14,
@@ -312,7 +365,11 @@ export const projects: ProjectType[] = [
     technologies: [ "ASP.NET Core", "Entity Framework", "SQL Server", "Bootstrap"],
     repositories: {},
     collaborators: [],
-    projectRole: "Full-Stack Developer"
+    projectRole: "Full-Stack Developer",
+    achievements:[
+      "Digitalized subscription workflows for TV services",
+      "Improved client data management and billing transparency"
+    ]
   },
   {
     id: 15,
@@ -329,7 +386,11 @@ export const projects: ProjectType[] = [
     technologies: [ "Django", "Cryptography Library", "MySQL"],
     repositories: {},
     collaborators: [],
-    projectRole: "Full-Stack Developer"
+    projectRole: "Full-Stack Developer",
+    achievements:[
+      "Implemented PKI concepts in a web app",
+      "Ensured authenticity and integrity of signed documents"
+    ]
   },
   {
     id: 16,
@@ -356,7 +417,11 @@ export const projects: ProjectType[] = [
     technologies: [ "Linux Environment", "iptables", "Squid", "SquidGuard", "Docker", "Networking"],
     repositories: {},
     collaborators: [],
-    projectRole: "Network Security Engineer"
+    projectRole: "Network Security Engineer",
+    achievements:[
+      "Designed secure DMZ topology with firewall rules",
+      "Enforced access control and proxy filtering"
+    ]
   },
   {
     id: 17,
@@ -378,7 +443,11 @@ export const projects: ProjectType[] = [
       source: "https://github.com/Angoty/Evaluation2"
     },
     collaborators: [],
-    projectRole: "Full-Stack Developer"
+    projectRole: "Full-Stack Developer",
+    achievements:[
+      "Digitalized race organization workflows",
+      "Generated official PDF reports for rankings"
+    ]
   },
   {
     id: 18,
@@ -394,7 +463,11 @@ export const projects: ProjectType[] = [
     repositories: {},
     collaborators: [],
     projectRole: "Backend Developer & Database Designer",
-    isPrivate: true
+    isPrivate: true,
+    achievements:[
+      "Automated product recipe composition",
+      "Ensured data consistency with unique primary keys"
+    ]
   }  
 ]
 

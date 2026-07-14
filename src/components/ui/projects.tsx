@@ -48,7 +48,7 @@ export default function Project() {
               <div className="flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 min-h-[48px]"> {project.title} </h3>
                 <p className="text-sm text-gray-600 mb-4 min-h-[60px]"> {project.description} </p>
-
+                
                 <div className="mt-auto">
                   <span className="block text-xs font-semibold text-gray-700 mb-2"> Technologies</span>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -137,6 +137,17 @@ export default function Project() {
                     ))}
                   </div>
                 </div>
+                {activeProject.achievements && activeProject.achievements.length > 0 && (
+  <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+    <h3 className="text-sm font-semibold text-gray-900 mb-3">Achievements</h3>
+    <ul className="list-disc list-inside text-xs text-gray-600 space-y-1">
+      {activeProject.achievements.map((ach, idx) => (
+        <li key={idx}>{ach}</li>
+      ))}
+    </ul>
+  </div>
+)}
+
                 <div className="space-y-2">
                     {(activeProject.collaborators ?? []).map((c) => (
                       <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="grid grid-cols-[1fr_180px_24px] items-center px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
