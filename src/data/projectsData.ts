@@ -287,9 +287,7 @@ export const projects: ProjectType[] = [
     organization: "IT University",
     orgLink: "https://www.ituniversity-mg.com/page/",
     technologies: [ "ASP.NET Core", "Entity Framework", "SQL Server", "Bootstrap", "Github"],
-    repositories: {
-      source: "https://github.com/Angoty/Projet-S5-S3-Meubles"
-    },
+    repositories: {},
     collaborators: [
       { name: "ANDRIAMAHANINTSOA Nancy Elidah", type: "linkedin", link: "https://www.linkedin.com/in/nancy-elidah-andriamahanintsoa-63574a312/", role:"Backend Developer" },
       { name: "RABESERANANA Arena Gracia", type: "linkedin", link: "https://www.linkedin.com/in/arena-gracia-rabeseranana/", role: "Full-Stack Developer" }
