@@ -170,7 +170,7 @@ export const projects: ProjectType[] = [
     gallery: ["/images/projects/avaratra_accueil.png", "/images/projects/avaratra_login.png", "/images/projects/avaratra_dashboard.png", "/images/projects/avaratra_district.png", "/images/projects/avaratra_publications.png"],
     category: "Web Application",
     organization: "DGDD Madagascar",
-    orgLink: "https://angoty-rabarijaona.vercel.app",
+    orgLink: "https://www.environnement.mg",
     technologies: [".NET", "C#", "Python", "SQLServer", "GitHub", "Pencil"],
     repositories: {
       frontend: "https://github.com/AngotyFitia/Avaratra-FrontOffice",
