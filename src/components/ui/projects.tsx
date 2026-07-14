@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { projects, type ProjectType } from "@/data/projectsData"
+import { DEFAULT_IMAGE, projects, type ProjectType } from "@/data/projectsData"
 
 export default function Project() {
   const [selectedCategory, setSelectedCategory] = useState("All")
@@ -39,9 +39,9 @@ export default function Project() {
         {filteredProjects.map((project) => (
             <div key={project.id} className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
               <div className="relative w-full h-40 mb-4 rounded-md overflow-hidden group">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
-                <button onClick={() => { setActiveProject(project); setCurrentIndex(0);}} className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <i className="fas fa-eye text-white text-2xl"></i>
+                <img src={project.isPrivate ? DEFAULT_IMAGE : project.image}  alt={project.title}  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
+                <button  onClick={() => {  if (!project.isPrivate) {  setActiveProject(project);  setCurrentIndex(0);  }  }}  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <i className={`fas ${project.isPrivate ? "fa-lock" : "fa-eye"} text-white text-2xl`}></i>
                 </button>
               </div>
 

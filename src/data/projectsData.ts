@@ -1,3 +1,5 @@
+export const DEFAULT_IMAGE = "/images/projects/private_project.png"
+
 export interface Collaborator {
   name: string
   type: "linkedin" | "portfolio"
@@ -59,6 +61,7 @@ export const projects: ProjectType[] = [
       { name: "RAKOTOVOLOLONA Erick", type: "linkedin", link: "https://linkedin.com/in/hajanirina-erick-rakotovololona-42518576", role: "Project Supervisor" },
       { name: "RANDIANOMANANA Imiangaly", type: "linkedin", link: "https://linkedin.com/in/imiangaly-randrianomanana-0389652b8", role: "Project Communications Manager" }
     ],
+    isPrivate: true,
     projectRole: "Fullstack Developer"
   },
   {
@@ -268,7 +271,7 @@ export const projects: ProjectType[] = [
   },
   {
     id: 13,
-    title: "Fixed Asset Management System (Immobilisation)",
+    title: "Fixed Asset Management System",
     description: "A web-based application designed to streamline accounting workflows for managing supply needs, proforma requests, deliveries, and asset depreciation.",
     objectives: "This project focuses on digitalizing the accounting and finance processes related to fixed assets. Users can declare supply needs, group requests, upload proforma invoices, manage delivery notes, and track asset depreciation. The system improves collaboration between Finance and Accounting departments while ensuring traceability and efficiency in document management.",
     image: "/images/projects/immobilisation_connexion_chef.png",
@@ -352,10 +355,32 @@ export const projects: ProjectType[] = [
     category: "Cybersecurity",
     organization: "IT University",
     orgLink: "https://www.ituniversity-mg.com/page/",
-    technologies: [ "Linux", "iptables", "Squid", "SquidGuard", "Docker", "Networking"],
+    technologies: [ "Linux Environment", "iptables", "Squid", "SquidGuard", "Docker", "Networking"],
     repositories: {},
     collaborators: [],
     projectRole: "Network Security Engineer"
+  },
+  {
+    id: 17,
+    title: "Course",
+    description: "A web-based application designed to manage running events, including stage planning, participant assignments, and team rankings.",
+    objectives: "This project focuses on digitalizing race organization workflows. Administrators can log in securely, define race stages with distances and departure times, assign participants to stages, and track progress. The system also provides interactive dashboards with charts and tables to visualize team rankings, points per stage, and overall standings. It includes export features such as PDF generation for official reports.",
+    image: "/images/projects/course_connexion.png",
+    gallery: [  "/images/projects/course_connexion.png", 
+                "/images/projects/course_liste_etapes.png",
+                "/images/projects/course_classement_courreurs.png",
+                "/images/projects/course_points_etapes.png",
+                "/images/projects/course_par_equipe.png",
+                "/images/projects/course_equipe_gagnante.png",],
+    category: "Desktop Application",
+    organization: "IT University",
+    orgLink: "https://www.ituniversity-mg.com/page/",
+    technologies: [ "ASP.NET Core", "Entity Framework", "PostgreSQL", "Github", "Bootstrap"],
+    repositories: {
+      source: "https://github.com/Angoty/Evaluation2"
+    },
+    collaborators: [],
+    projectRole: "Full-Stack Developer"
   }
 ]
 
