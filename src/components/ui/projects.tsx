@@ -29,7 +29,7 @@ export default function Project() {
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">By:</span>
-          {["All Organizations","DGI Madagascar", "DGDD Madagascar", "Personal","IT University", "Université Côte d'Azur"].map((filter) => (
+          {["All Organizations","DGI Madagascar", "Personal","IT University", "Université Côte d'Azur"].map((filter) => (
             <Button key={filter} onClick={() => setSelectedOrg(filter)} className={`px-4 py-2 rounded-full border ${ selectedOrg === filter ? "bg-black text-white" : "bg-transparent text-black" }`}>{filter}</Button>
           ))}
         </div>
