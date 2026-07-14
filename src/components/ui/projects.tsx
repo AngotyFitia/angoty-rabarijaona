@@ -29,7 +29,7 @@ export default function Project() {
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
           <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">By:</span>
-          {["All Organizations","DGI Madagascar","Personal","IT University", "Université Côte d'Azur"].map((filter) => (
+          {["All Organizations","DGI Madagascar", "DGDD Madagascar", "Personal","IT University", "Université Côte d'Azur"].map((filter) => (
             <Button key={filter} onClick={() => setSelectedOrg(filter)} className={`px-4 py-2 rounded-full border ${ selectedOrg === filter ? "bg-black text-white" : "bg-transparent text-black" }`}>{filter}</Button>
           ))}
         </div>
@@ -138,16 +138,15 @@ export default function Project() {
                   </div>
                 </div>
                 {activeProject.achievements && activeProject.achievements.length > 0 && (
-  <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-    <h3 className="text-sm font-semibold text-gray-900 mb-3">Achievements</h3>
-    <ul className="list-disc list-inside text-xs text-gray-600 space-y-1">
-      {activeProject.achievements.map((ach, idx) => (
-        <li key={idx}>{ach}</li>
-      ))}
-    </ul>
-  </div>
-)}
-
+                    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                      <h3 className="text-sm font-semibold text-gray-900 mb-3">Achievements</h3>
+                      <ul className="list-disc list-inside text-xs text-gray-600 space-y-1">
+                        {activeProject.achievements.map((ach, idx) => (
+                          <li key={idx}>{ach}</li>
+                        ))}
+                      </ul>
+                    </div>
+                )}
                 <div className="space-y-2">
                     {(activeProject.collaborators ?? []).map((c) => (
                       <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="grid grid-cols-[1fr_180px_24px] items-center px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
