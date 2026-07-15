@@ -460,5 +460,40 @@ export const projects: ProjectType[] = [
             "Deployed successfully on AWS Cloud infrastructure",
             "Implemented secure VPC and database setup"
         ],
+    },
+    {
+        id: 19,
+        title: "SIG Madagascar - Spatial",
+        description: "A GIS project focused on mapping and analyzing demographic and geographic data of Madagascar.",
+        objectives: "The project aimed to integrate spatial datasets (districts, communes, routes, lakes, population) to support regional planning and highlight water scarcity and climate-related risks.",
+        image: "/images/projects/qgis_image1.png",
+        gallery: [  "/images/projects/qgis_image1.png",
+                    "/images/projects/qgis_image2.png",
+                    "/images/projects/qgis_image3.png",
+                    "/images/projects/qgis_image4.png",
+                    "/images/projects/qgis_image5.png",
+                    "/images/projects/qgis_image6.png",
+                    "/images/projects/qgis_image7.png",
+                    "/images/projects/qgis_image8.png",
+                    "/images/projects/qgis_image9.png",
+                    "/images/projects/qgis_image10.png",
+                    "/images/projects/qgis_image11.png",
+                    "/images/projects/qgis_image12.png",
+                    "/images/projects/qgis_image13.png",
+                    "/images/projects/qgis_image14.png",
+        ],
+        category: "GIS Application",
+        organization: "Personal",
+        orgLink: "https://angoty-rabarijaona.vercel.app",
+        technologies: ["Linux Environment", "Python", "SQLServer", "PostGIS"],
+        repositories: {},
+        collaborators: [],
+        projectRole: "Data Analyst & QGIS Developer",
+        achievements:[
+            "Mapped administrative boundaries (districts and communes) with georeferenced data",
+            "Integrated demographic datasets (population, households) for spatial analysis",
+            "Visualized water resources and routes to support regional planning",
+            "Applied GIS methods to anticipate climate risks and resource scarcity"
+        ]
     }
 ]
