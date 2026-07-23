@@ -495,5 +495,31 @@ export const projects: ProjectType[] = [
             "Visualized water resources and routes to support regional planning",
             "Applied GIS methods to anticipate climate risks and resource scarcity"
         ]
+    },
+    {
+        id: 20,
+        title: "Làlana",
+        description: "A Ruby-based web application designed to evaluate and rank contractors according to road project quality metrics.",
+        objectives: "The system allows users to select a road, retrieve contractor data, and compute a quality-to-price ratio using stored formulas. It automates evaluation and ranking based on performance indicators such as speed, employee efficiency, and experience.",
+        image: "/images/projects/lalana_selection.png",
+        gallery: [
+            "/images/projects/lalana_selection.png",
+            "/images/projects/lalana_liste.png"
+        ],
+        category: "Desktop Application",
+        organization: "IT University",
+        orgLink: "https://www.ituniversity-mg.com/page/",
+        technologies: ["Ruby", "Sinatra", "PostgreSQL", "HTML", "ERB"],
+        repositories: {
+            source: "https://github.com/Angoty/Projets/tree/main/S4/ruby/Evaluation"
+        },
+        collaborators: [],
+        projectRole: "Fullstack Developer",
+        achievements: [
+            "Automated contractor ranking based on quality-price ratio",
+            "Integrated dynamic SQL formula evaluation for road quality",
+            "Demonstrated Ruby–PostgreSQL integration in a lightweight web app"
+        ]
     }
+    
 ]
