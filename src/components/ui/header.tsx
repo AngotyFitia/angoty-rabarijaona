@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import toast from "react-hot-toast"
 import emailjs from "emailjs-com";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
+import translations from "@/data/translations";
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -11,10 +14,11 @@ export default function Header() {
   const [nom, setNom] = useState("")
   const [errorMessage, setErrorMessage] = useState("");
   const [madagascarTime, setMadagascarTime] = useState("");
+  const { language } = useLanguage();
+  const t = translations[language];
 
 
   useEffect(() => {
-    // ===== SCROLL DETECTION =====
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -26,8 +30,6 @@ export default function Header() {
         setScrollDirection("down");
       }
     };
-  
-    // ===== TIME UPDATE (MADAGASCAR) =====
     const updateTime = () => {
       const time = new Date().toLocaleTimeString("fr-FR", {
         timeZone: "Indian/Antananarivo",
@@ -90,9 +92,8 @@ export default function Header() {
         <div className="w-full flex items-center justify-between py-4 px-6">
           <div className="text-2xl font-bold text-[#1a1a1a]">Angoty </div>
  
-          {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-6">
-          <div className="hidden md:flex items-center gap-3 text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+          {/* <div className="hidden md:flex items-center gap-3 text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
               <span className="flex items-center gap-1">
                 <i className="fas fa-clock text-gray-500"></i>
                 {madagascarTime} (GMT+3)
@@ -102,16 +103,17 @@ export default function Header() {
                 <i className="fas fa-map-marker-alt text-gray-500"></i>
                 Antananarivo, Madagascar
               </span>
-            </div>
+            </div> */}
             <nav className="flex space-x-6">
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#projects">Projects</a>
-              <a href="#skills">Skills</a>
-              <a href="#services">Services</a>
-              <a href="#contact">Contact</a>
+              <a href="#home">{t.header.home}</a>
+              <a href="#about">{t.header.about}</a>
+              <a href="#projects">{t.header.projects}</a>
+              <a href="#skills">{t.header.skills}</a>
+              <a href="#services">{t.header.services}</a>
+              <a href="#contact">{t.header.contact}</a>
             </nav>
-            <Button className="bg-black text-white hover:bg-gray-800" onClick={() => setCvModalOpen(true)}>Download CV</Button>
+            <LanguageSwitcher />
+            <Button className="bg-black text-white hover:bg-gray-800" onClick={() => setCvModalOpen(true)}><i className="fas fa-download"></i>CV</Button>
             
           </div>
           <div className="md:hidden">
@@ -122,18 +124,19 @@ export default function Header() {
         {/* Mobile menu */}
         {open && (
           <div className="md:hidden bg-white/70 backdrop-blur-md border-t border-[#e0e0e0] px-6 py-4 space-y-4 text-center">
-            <a href="#home" className="flex items-center justify-center gap-2"><i className="fas fa-home"></i> <span>Home</span></a>
-            <a href="#about" className="flex items-center justify-center gap-2"><i className="fas fa-user"></i> <span>About</span></a>
-            <a href="#projects" className="flex items-center justify-center gap-2"><i className="fas fa-folder-open"></i> <span>Projects</span></a>
-            <a href="#skills" className="flex items-center justify-center gap-2"><i className="fas fa-bolt"></i> <span>Skills</span></a>
-            <a href="#services" className="flex items-center justify-center gap-2"><i className="fas fa-briefcase"></i> <span>Services</span></a>
-            <a href="#contact" className="flex items-center justify-center gap-2"><i className="fas fa-envelope"></i> <span>Contact</span></a>
+            <a href="#home" className="flex items-center justify-center gap-2"><i className="fas fa-home"></i> <span>{t.header.home}</span></a>
+            <a href="#about" className="flex items-center justify-center gap-2"><i className="fas fa-user"></i> <span>{t.header.about}</span></a>
+            <a href="#projects" className="flex items-center justify-center gap-2"><i className="fas fa-folder-open"></i> <span>{t.header.projects}</span></a>
+            <a href="#skills" className="flex items-center justify-center gap-2"><i className="fas fa-bolt"></i> <span>{t.header.skills}</span></a>
+            <a href="#services" className="flex items-center justify-center gap-2"><i className="fas fa-briefcase"></i> <span>{t.header.services}</span></a>
+            <a href="#contact" className="flex items-center justify-center gap-2"><i className="fas fa-envelope"></i> <span>{t.header.contact}</span></a>
+            <LanguageSwitcher />
             <div className="flex justify-center">
               <Button className="bg-black text-white hover:bg-gray-900 px-5 py-2  text-sm flex items-center gap-2" onClick={() => setCvModalOpen(true)}>
-                <i className="fas fa-file-download"></i>Download CV
+                <i className="fas fa-download"></i>CV
               </Button>
             </div>            
-          <div className="md:hidden text-[11px] text-gray-600 text-center py-1"> <div>{madagascarTime} • Antananarivo (GMT+3)</div></div>
+          {/* <div className="md:hidden text-[11px] text-gray-600 text-center py-1"> <div>{madagascarTime} • Antananarivo (GMT+3)</div></div> */}
           </div>
         )}
       </header>
@@ -163,18 +166,18 @@ export default function Header() {
             <button onClick={() => setCvModalOpen(false)} className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl"><i className="fas fa-times"></i></button>
             <div className="flex flex-col items-center mb-4">
               <i className="fas fa-paper-plane text-black text-3xl mb-2"></i>
-              <h2 className="text-xl font-bold text-black">Receive the CV by email</h2>
-              <p className="text-sm text-gray-600 text-center">The CV will be sent directly to your inbox.</p>
+              <h2 className="text-xl font-bold text-black">{t.header.cv.title}</h2>
+              <p className="text-sm text-gray-600 text-center">{t.header.cv.description}</p>
             </div>
             <div className="flex items-center border px-3 py-2 rounded mb-4">
               <i className="fas fa-user text-gray-500 mr-2"></i>
-              <input type="text" placeholder="Your name" value={nom} onChange={(e) => setNom(e.target.value)} className="flex-1 outline-none"/>
+              <input type="text" placeholder={t.header.cv.name} value={nom} onChange={(e) => setNom(e.target.value)} className="flex-1 outline-none"/>
             </div>
             <div className="flex items-center border px-3 py-2 rounded mb-4">
               <i className="fas fa-envelope text-gray-500 mr-2"></i>
-              <input type="email" placeholder="Your email address" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 outline-none"/>
+              <input type="email" placeholder={t.header.cv.email} value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 outline-none"/>
             </div>
-            <Button className={`w-full ${canSend ? "bg-black text-white hover:bg-gray-800" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`} onClick={handleSendCv} disabled={!canSend}>Send</Button>
+            <Button className={`w-full ${canSend ? "bg-black text-white hover:bg-gray-800" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`} onClick={handleSendCv} disabled={!canSend}>{t.header.cv.button}</Button>
             {errorMessage && (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded relative mt-3 text-center">
                 <strong className="font-bold">Error:</strong>
