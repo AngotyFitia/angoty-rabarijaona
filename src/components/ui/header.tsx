@@ -54,22 +54,17 @@ export default function Header() {
 
   const handleSendCv = () => {
     if (!nom || !email) {
-      setErrorMessage("Veuillez remplir tous les champs.");
+      setErrorMessage(t.header.cv.response.name);
       return;
     }
   
     if (!isValidEmail) {
-      setErrorMessage("Adresse email invalide.");
+      setErrorMessage(t.header.cv.response.email);
       return;
     }
-    emailjs.send(
-      "service_y6e35rp",
-      "template_fenv5uw",
-      { to_email: email, to_name: nom },
-      "nyCuHCn8P7986n21j"
-    )
+    emailjs.send("service_y6e35rp", "template_fenv5uw", { to_email: email, to_name: nom }, "nyCuHCn8P7986n21j")
     .then(() => {
-      toast.success(`The CV has been sent to your inbox.`);
+      toast.success(t.header.cv.response.succes);
       setCvModalOpen(false);
       setEmail("");
       setNom("");
@@ -77,7 +72,7 @@ export default function Header() {
     })
     .catch((error) => {
       console.error("Erreur:", error);
-      setErrorMessage("Échec de l'envoi du CV. Vérifiez votre adresse email.");
+      setErrorMessage(t.header.cv.response.error);
     });
   };
   
