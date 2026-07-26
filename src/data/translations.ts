@@ -2,7 +2,7 @@ const translations = {
     en: {
       header: {
         home: "Home",
-        about: "About Me",
+        about: "About me",
         projects: "Projects",
         skills: "Skills",
         services: "Services",
@@ -15,11 +15,17 @@ const translations = {
           button: "Send"
         }
       },
+      home: {
+        title: "Welcome",
+        description: "Software engineer focused on full-stack development and data analysis, building scalable applications and impactful digital solutions.",
+        contact: "Lets'work together",
+        projects: "View projects"
+      }
     },
     fr: {
       header: {
         home: "Accueil",
-        about: "À propos de moi",
+        about: "À propos",
         projects: "Projets",
         skills: "Compétences",
         services: "Services",
@@ -32,23 +38,12 @@ const translations = {
           button: "Envoyer"
         }
       },
-    },
-    mg: {
-      header: {
-        home: "Tongasoa",
-        about: "Mombamomba Ahy",
-        projects: "Tetikasa",
-        skills: "Fahaiza-manao",
-        services: "Tolotra",
-        contact: "Hifandray",
-        cv: {
-          title: "Handray ny CV amin'ny alalan'ny mail",
-          description: "Ny CV dia halefa mivantana ao amin'ny boaty mail anao.",
-          name: "Anaranao",
-          email: "Adiresy mail anao",
-          button: "Alefaso"
-        }
-      },
+      home: {
+        title: "Bienvenue",
+        description: "Ingénieure logicielle spécialisée en développement full‑stack et en analyse de données, je conçois des solutions numériques innovantes qui transforment les idées en résultats concrets. ",
+        contact: "Me contacter",
+        projects: "Voir mes projets"
+      }
     },
   };
   

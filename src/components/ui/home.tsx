@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+import { useLanguage } from "@/context/LanguageContext";
+import translations from "@/data/translations";
 
 export default function Home() {
   const smiles = [":)", ":)", ":)", ":)"]
   const [index, setIndex] = useState(0)
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,17 +24,15 @@ export default function Home() {
       </div>
 
       <div className="mt-4 md:mt-0 space-y-6 order-2 md:order-1">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#1a1a1a] text-center md:text-left">Welcome <span className="inline-block animate-bounce">{smiles[index]}</span></h1>
-        <p className="text-base sm:text-lg md:text-xl text-[#555555] max-w-lg mx-auto md:mx-0 text-center md:text-left animate-slideUp delay-400">
-        Software engineer focused on full-stack development and data analysis, building scalable applications and impactful digital solutions.
-        </p>
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#1a1a1a] text-center md:text-left">{t.home.title}<span className="inline-block animate-bounce">{smiles[index]}</span></h1>
+        <p className="text-base sm:text-lg md:text-xl text-[#555555] max-w-lg mx-auto md:mx-0 text-center md:text-left animate-slideUp delay-400">{t.home.description}</p>
         
         <div className="flex flex-row gap-4 justify-center md:justify-start animate-fadeIn delay-600">
           <a href="#contact">
-            <Button className="w-auto bg-black text-white rounded-full px-6 py-3 shadow-md hover:bg-gray-800 transition-transform duration-300" style={{ animation: "glow 2s infinite" }}>Let’s work together</Button>
+            <Button className="w-auto bg-black text-white rounded-full px-6 py-3 shadow-md hover:bg-gray-800 transition-transform duration-300" style={{ animation: "glow 2s infinite" }}>{t.home.contact}</Button>
           </a>
           <a href="#projects">
-            <Button className="w-auto bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] hover:translate-y-[-2px] transition-transform duration-300">View projects</Button>
+            <Button className="w-auto bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] hover:translate-y-[-2px] transition-transform duration-300">{t.home.projects}</Button>
           </a>
         </div>
       </div>

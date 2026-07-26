@@ -3,10 +3,10 @@ import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage() as { language: "en" | "fr" | "mg"; setLanguage: (lang: "en" | "fr" | "mg") => void };
+  const { language, setLanguage } = useLanguage() as { language: "en" | "fr"; setLanguage: (lang: "en" | "fr" ) => void };
   const [open, setOpen] = useState(false);
 
-  const handleSelect = (lang: "en" | "fr" | "mg") => {
+  const handleSelect = (lang: "en" | "fr") => {
     setLanguage(lang);
     setOpen(false);
   };
@@ -20,9 +20,6 @@ export default function LanguageSwitcher() {
         {language === "fr" && (
           <ReactCountryFlag countryCode="FR" svg style={{ fontSize: "1.5em" }} />
         )}
-        {language === "mg" && (
-          <ReactCountryFlag countryCode="MG" svg style={{ fontSize: "1.5em" }} />
-        )}
       </button>
 
       {open && (
@@ -34,10 +31,6 @@ export default function LanguageSwitcher() {
           <button onClick={() => handleSelect("fr")} className={`flex items-center gap-2 w-full px-4 py-2 text-left transition hover:bg-gray-100 ${ language === "fr" ? "bg-gray-100 font-semibold" : ""}`}>
             <ReactCountryFlag countryCode="FR" svg style={{ fontSize: "1.5em" }} />
             <span className="text-sm">FR</span>
-          </button>
-          <button onClick={() => handleSelect("mg")} className={`flex items-center gap-2 w-full px-4 py-2 text-left transition hover:bg-gray-100 ${ language === "mg" ? "bg-gray-100 font-semibold" : ""}`}>
-            <ReactCountryFlag countryCode="MG" svg style={{ fontSize: "1.5em" }} />
-            <span className="text-sm">MG</span>
           </button>
         </div>
       )}
