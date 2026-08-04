@@ -41,6 +41,34 @@ const translations = {
         contact: "Let's work together",
         cv: "Download CV",
         msc: "Msc"
+      },
+      projects: {
+        title: "Selected Projects",
+        description: "Explore a selection of my work across web, mobile, full‑stack, and data‑driven solutions.",
+        filters: {
+          all: "All",
+          mobile: "Mobile Application",
+          web: "Web Application",
+          desktop: "Desktop Application",
+          data: "Data‑science",
+          blockchain: "Blockchain",
+          cloud: "Cloud / DevOps",
+          security: "Cybersecurity"
+        },
+        orgFilters: {
+          all: "All organizations",
+          dgi: "DGI Madagascar",
+          personal: "Personal",
+          it: "IT University",
+          uca: "Université Côte d'Azur"
+        },
+        technologies: "Technologies",
+        by: "Par :",
+        modal:{
+          myRole: "My Role",
+          achievements: "Achievements",
+          links: "Links"
+        }
       }
     },
     fr: {
@@ -86,6 +114,34 @@ const translations = {
         cv: "Télécharger le CV",
         msc: "M2",
         
+      },
+      projects: {
+        title: "Projets sélectionnés",
+        description: "Découvrez une sélection de mes travaux en web, mobile, full‑stack et solutions orientées données.",
+        filters: {
+          all: "Tous",
+          mobile: "Application Mobile",
+          web: "Application Web",
+          desktop: "Application Desktop",
+          data: "Data‑science",
+          blockchain: "Blockchain",
+          cloud: "Cloud / DevOps",
+          security: "Cybersécurité"
+        },
+        orgFilters: {
+          all: "Toutes les organisations",
+          dgi: "DGI Madagascar",
+          personal: "Personnel",
+          it: "IT University",
+          uca: "Université Côte d'Azur"
+        },
+        technologies: "Technologies",
+        by: "Par :",
+        modal:{
+          myRole: "Mon Rôle ",
+          achievements: "Accomplissements",
+          links: "Liens"
+        }
       }      
     },
   };

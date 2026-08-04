@@ -1,12 +1,16 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { DEFAULT_IMAGE, projects, type ProjectType } from "@/data/projectsData"
+import { useLanguage } from "@/context/LanguageContext"
+import translations from "@/data/translations"
 
 export default function Project() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedOrg, setSelectedOrg] = useState("All Organizations")
   const [activeProject, setActiveProject] = useState<ProjectType | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const { language } = useLanguage()
+  const t = translations[language]
 
   const filteredProjects = projects.filter((p) => {
     const categoryMatch = selectedCategory === "All" || p.category === selectedCategory
@@ -17,48 +21,118 @@ export default function Project() {
   return (
     <section id="projects" className="min-h-screen w-full bg-white px-6 md:px-12 py-16 md:py-20">
       <div className="text-center mb-12">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-gray-900">Selected Projects</h2>
-        <p className="mb-8 text-sm sm:text-base text-gray-600 text-center max-w-xl mx-auto">Explore a selection of my work across web, mobile, full‑stack, and data‑driven solutions.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-gray-900">{t.projects.title}</h2>
+        <p className="mb-8 text-sm sm:text-base text-gray-600 text-center max-w-xl mx-auto">{t.projects.description}</p>
       </div>
 
       <div className="flex flex-col gap-6 items-center mb-12">
         <div className="flex flex-wrap gap-3 justify-center">
-          {["All","Mobile Application","Web Application","Desktop Application", "Data-science", "BlockChain", "Cloud / DevOps", "Cybersecurity"].map((filter) => (
-            <Button key={filter} onClick={() => setSelectedCategory(filter)} className={`px-4 py-2 rounded-full border ${ selectedCategory === filter ? "bg-black text-white" : "bg-transparent text-black"}`}>{filter}</Button>
+          {Object.values(t.projects.filters).map((filter) => (
+            <Button
+              key={filter}
+              onClick={() => setSelectedCategory(filter)}
+              className={`px-4 py-2 rounded-full border ${
+                selectedCategory === filter ? "bg-black text-white" : "bg-transparent text-black"
+              }`}
+            >
+              {filter}
+            </Button>
           ))}
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
-          <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">By:</span>
-          {["All Organizations","DGI Madagascar", "Personal","IT University", "Université Côte d'Azur"].map((filter) => (
-            <Button key={filter} onClick={() => setSelectedOrg(filter)} className={`px-4 py-2 rounded-full border ${ selectedOrg === filter ? "bg-black text-white" : "bg-transparent text-black" }`}>{filter}</Button>
+          <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">{t.projects.by}</span>
+          {Object.values(t.projects.orgFilters).map((filter) => (
+            <Button
+              key={filter}
+              onClick={() => setSelectedOrg(filter)}
+              className={`px-4 py-2 rounded-full border ${
+                selectedOrg === filter ? "bg-black text-white" : "bg-transparent text-black"
+              }`}
+            >
+              {filter}
+            </Button>
           ))}
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProjects.map((project) => (
-            <div key={project.id} className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
+        {filteredProjects.map((project) => {
+          const title =
+            language === "fr" && project.translations?.fr?.title
+              ? project.translations.fr.title
+              : project.title
+
+          const description =
+            language === "fr" && project.translations?.fr?.description
+              ? project.translations.fr.description
+              : project.description
+
+          const objectives =
+            language === "fr" && project.translations?.fr?.objectives
+              ? project.translations.fr.objectives
+              : project.objectives
+
+          const achievements =
+            language === "fr" && project.translations?.fr?.achievements
+              ? project.translations.fr.achievements
+              : project.achievements
+
+          return (
+            <div
+              key={project.id}
+              className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition flex flex-col justify-between"
+            >
               <div className="relative w-full h-40 mb-4 rounded-md overflow-hidden group">
-                <img src={project.isPrivate ? DEFAULT_IMAGE : project.image}  alt={project.title}  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
-                <button  onClick={() => {  if (!project.isPrivate) {  setActiveProject(project);  setCurrentIndex(0);  }  }}  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <i className={`fas ${project.isPrivate ? "fa-lock" : "fa-eye"} text-white text-2xl`}></i>
+                <img
+                  src={project.isPrivate ? DEFAULT_IMAGE : project.image}
+                  alt={title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <button
+                  onClick={() => {
+                    if (!project.isPrivate) {
+                      setActiveProject(project)
+                      setCurrentIndex(0)
+                    }
+                  }}
+                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <i
+                    className={`fas ${project.isPrivate ? "fa-lock" : "fa-eye"} text-white text-2xl`}
+                  ></i>
                 </button>
               </div>
 
               <div className="flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 min-h-[48px]"> {project.title} </h3>
-                <p className="text-sm text-gray-600 mb-4 min-h-[60px]"> {project.description} </p>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 min-h-[48px]">
+                  {title}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 min-h-[60px]">
+                  {description}
+                </p>
+
                 <div className="mt-auto">
-                  <span className="block text-xs font-semibold text-gray-700 mb-2"> Technologies</span>
+                  <span className="block text-xs font-semibold text-gray-700 mb-2">
+                    {t.projects.technologies}
+                  </span>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
-                      <span key={tech} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full shadow-sm">{tech}</span>
+                      <span
+                        key={tech}
+                        className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full shadow-sm"
+                      >
+                        {tech}
+                      </span>
                     ))}
                   </div>
 
                   <div className="flex items-center justify-between text-xs mt-2">
-                    <a href={project.orgLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium transition">
+                    <a
+                      href={project.orgLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium transition"
+                    >
                       <i className="fas fa-building"></i>
                       <span>{project.organization}</span>
                       <i className="fas fa-arrow-up-right-from-square text-xs text-gray-500"></i>
@@ -69,13 +143,12 @@ export default function Project() {
                       <span className="font-medium">{project.category}</span>
                     </div>
                   </div>
-                  
                 </div>
               </div>
             </div>
-        ))}
-      </div>
-      
+          )
+        })}
+      </div>      
       {/* Modal */}
       {activeProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-6">
@@ -84,7 +157,7 @@ export default function Project() {
               <i className="fas fa-times text-gray-700"></i>
             </button>
             <div className="px-6 md:px-10 py-6 border-b border-gray-100">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900"> {activeProject.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{activeProject.translations?.[language]?.title || activeProject.title}</h2>
               <div className="flex flex-wrap items-center gap-3 mt-3 text-sm text-gray-600">
                 <span className="px-3 py-1 bg-gray-100 rounded-lg text-gray-700">{activeProject.category}</span>
                 <a href={activeProject.orgLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gray-900 transition">
@@ -93,10 +166,10 @@ export default function Project() {
                   <i className="fas fa-arrow-up-right-from-square text-xs text-gray-400"></i>
                 </a>
               </div>
-              {activeProject.projectRole && (
+              {activeProject.translations?.[language]?.projectRole && (
                 <div className="mt-3 text-sm">
-                  <span className="text-gray-500">My role:</span>{" "}
-                  <span className="font-semibold text-gray-800">{activeProject.projectRole}</span>
+                  <span className="text-gray-500">{t.projects.modal.myRole}:</span>{" "}
+                  <span className="font-semibold text-gray-800">{activeProject.translations?.[language]?.projectRole}</span>
                 </div>
               )}
             </div>
@@ -126,8 +199,8 @@ export default function Project() {
               
               <div className="flex flex-col gap-6">
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-                  <p className="text-gray-700 leading-relaxed">{activeProject.objectives}</p>
-                  <p className="text-gray-500 mt-3 text-sm leading-relaxed"> {activeProject.description}</p>
+                  <p className="text-gray-700 leading-relaxed">{activeProject.translations?.[language]?.objectives || activeProject.objectives}</p>
+                  <p className="text-gray-500 mt-3 text-sm leading-relaxed">{activeProject.translations?.[language]?.description || activeProject.description}</p>
                 </div>
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
                   <h3 className="text-sm font-semibold text-gray-900 mb-3"> Technologies</h3>
@@ -137,18 +210,19 @@ export default function Project() {
                     ))}
                   </div>
                 </div>
-                {activeProject.achievements && activeProject.achievements.length > 0 && (
+                
+                {activeProject.translations?.[language]?.achievements && activeProject.translations?.[language]?.achievements.length > 0 && (
                     <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-3">Achievements</h3>
+                      <h3 className="text-sm font-semibold text-gray-900 mb-3">{t.projects.modal.achievements}</h3>
                       <ul className="list-disc list-inside text-xs text-gray-600 space-y-1">
-                        {activeProject.achievements.map((ach, idx) => (
+                        {activeProject.translations?.[language]?.achievements.map((ach, idx) => (
                           <li key={idx}>{ach}</li>
                         ))}
                       </ul>
                     </div>
                 )}
                 <div className="space-y-2">
-                    {(activeProject.collaborators ?? []).map((c) => (
+                    {(activeProject.translations?.[language]?.collaborators ?? []).map((c) => (
                       <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="grid grid-cols-[1fr_180px_24px] items-center px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
                         <div className="min-w-0">
                           <span className="text-sm font-medium text-gray-700 truncate block">

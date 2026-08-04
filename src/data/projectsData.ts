@@ -13,6 +13,15 @@ export interface ProjectRepositories {
   mobile?: string
   source?: string
 }
+export interface ProjectTranslations {
+    fr?: {
+      title: string
+      description: string
+      objectives: string
+      achievements?: string[],
+      role:string
+    }
+}
 
 export interface ProjectType {
   id: number
@@ -32,7 +41,9 @@ export interface ProjectType {
   projectRole?: string
   isPrivate?: boolean
   achievements?: string[]
+  translations?: ProjectTranslations
 }
+
 
 export const projects: ProjectType[] = [
     {
@@ -57,9 +68,24 @@ export const projects: ProjectType[] = [
         achievements:[
           "Enabled product exchange and resale among students",
           "Strengthened database security with role‑based access"
-        ]
-    }, 
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Takalo",
+                description: "Une application en ligne conçue pour la vente et l'échange de produits.",
+                objectives: "L'objectif principal de Takalo est de permettre aux utilisateurs de vendre des articles dont ils n'ont plus besoin et de faciliter les échanges de produits entre particuliers.",
+                achievements:[
+                    "Permet l'échange et la revente de produits entre étudiants",
+                    "Renforce la sécurité de la base de données avec un accès basé sur les rôles"
+                ],
+                projectRole: "Développeur Fullstack & Ingénieur en Sécurité",
+                collaborators: [
+                    { name: "Toky Hary", type: "linkedin", link: "https://linkedin.com/in/toky-hary-ny-aina-rakotoarimanana-474740286", role: "Développeur Frontend" },
+                    { name: "Allan Tohaina", type: "linkedin", link: "https://linkedin.com/in/allan-tohaina-7769b3192", role: "Administrateur de Base de Données" }
+                  ],
+            }
+        }
+    },{
         id: 2,
         title: "Manufacturing Management System",
         description: "A web-based application designed to manage product manufacturing workflows, including component tracking, recipe composition, and automated primary key generation.",
@@ -77,9 +103,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Automated product recipe composition",
             "Ensured data consistency with unique primary keys"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Système de Gestion de Fabrication",
+                description: "Une application web conçue pour gérer les flux de fabrication de produits, y compris le suivi des composants, la composition des recettes et la génération automatique de clés primaires.",
+                objectives: "Ce projet se concentre sur la digitalisation du processus de production. Il permet aux administrateurs de définir des produits, d'enregistrer des composants avec leurs unités et prix, et de créer des recettes reliant les produits à leurs composants requis. Le système génère automatiquement des clés primaires uniques pour chaque entité, garantit la cohérence des données et calcule les coûts des produits en fonction des quantités de composants. Les pages JSP fournissent une interface utilisateur pour gérer les données et visualiser les détails de production.",
+                achievements:[
+                    "Automatisation de la composition des recettes de produits",
+                    "Assurance de la cohérence des données avec des clés primaires uniques"
+                ]
+            }
+        },
+    },{
         id: 3,
         title: "Fixed Asset Management System",
         description: "A web-based application designed to streamline accounting workflows for managing supply needs, proforma requests, deliveries, and asset depreciation.",
@@ -106,9 +142,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Streamlined accounting workflows for asset management",
             "Enhanced collaboration between Finance and Accounting"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Système de Gestion des Immobilisations",
+                description: "Une application web conçue pour rationaliser les flux de travail comptables liés à la gestion des besoins en approvisionnement, des demandes de proforma, des livraisons et de l'amortissement des actifs.",
+                objectives: "Ce projet se concentre sur la digitalisation des processus comptables et financiers liés aux immobilisations. Les utilisateurs peuvent déclarer leurs besoins en approvisionnement, regrouper les demandes, télécharger les factures proforma, gérer les bons de livraison et suivre l'amortissement des actifs. Le système améliore la collaboration entre les départements Finance et Comptabilité tout en garantissant la traçabilité et l'efficacité dans la gestion des documents.",
+                achievements:[
+                    "Rationalisation des flux de travail comptables pour la gestion des immobilisations",
+                    "Amélioration de la collaboration entre les départements Finance et Comptabilité"
+                ]
+            }
+        },
+    },{
         id: 4,
         title: "Furniture Management System",
         description: "A Java-based enterprise application designed to digitize and optimize furniture management operations including sales, stock tracking, personnel management, and statistical reporting.",
@@ -131,9 +177,19 @@ export const projects: ProjectType[] = [
         achievements: [
             "Digitalized furniture company operations",
             "Improved workflow efficiency by 30%"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Système de Gestion de Meubles",
+                description: "Une application d'entreprise basée sur Java conçue pour numériser et optimiser les opérations de gestion de meubles, y compris les ventes, le suivi des stocks, la gestion du personnel et les rapports statistiques.",
+                objectives: "Ce projet a été développé pour moderniser la gestion d'une entreprise de meubles en numérisant les opérations clés telles que la gestion des employés, les achats des clients, le suivi des stocks et l'analyse des ventes. Il améliore l'efficacité opérationnelle grâce à des modules structurés, une prise de décision basée sur les données et un contrôle des stocks en temps réel.",
+                achievements:[
+                    "Numérisation des opérations d'une entreprise de meubles",
+                    "Amélioration de l'efficacité du flux de travail de 30%"
+                ]
+            }
+        },
+    },{
         id: 5,
         title: "CANALSAT",
         description: "A web-based application for managing television subscriptions, client data, bouquet offers, and personalized channel selections.",
@@ -155,9 +211,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Digitalized subscription workflows for TV services",
             "Improved client data management and billing transparency"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "CANALSAT",
+                description: "Une application web pour gérer les abonnements télévisés, les données clients, les offres de bouquets et les sélections de chaînes personnalisées.",
+                objectives: "Ce projet vise à digitaliser le flux d'abonnement pour CANAL+. Les utilisateurs peuvent se connecter, consulter les bouquets disponibles avec des réductions, personnaliser leurs forfaits de chaînes et suivre l'historique des abonnements. Le système fournit également aux administrateurs des outils pour gérer les listes de clients, surveiller la disponibilité des chaînes et la force du signal, et assurer une facturation transparente. Il améliore l'expérience utilisateur en offrant à la fois des forfaits prédéfinis et des options de chaînes personnalisées.",
+                achievements:[
+                    "Digitalisation des flux d'abonnement pour les services TV",
+                    "Amélioration de la gestion des données clients et de la transparence de la facturation"
+                ]
+            }
+        },
+    },{
         id: 6,
         title: "Course",
         description: "A web-based application designed to manage running events, including stage planning, participant assignments, and team rankings.",
@@ -181,9 +247,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Digitalized race organization workflows",
             "Generated official PDF reports for rankings"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Course",
+                description: "Une application web conçue pour gérer les événements de course à pied, y compris la planification des étapes, l'affectation des participants et le classement des équipes.",
+                objectives: "Ce projet se concentre sur la digitalisation des flux d'organisation de courses. Les administrateurs peuvent se connecter en toute sécurité, définir les étapes de la course avec les distances et les heures de départ, affecter les participants aux étapes et suivre leur progression. Le système fournit également des tableaux de bord interactifs avec des graphiques et des tableaux pour visualiser le classement des équipes, les points par étape et le classement général. Il comprend des fonctionnalités d'exportation telles que la génération de PDF pour les rapports officiels.",
+                achievements:[
+                    "Digitalisation des flux d'organisation de courses",
+                    "Génération de rapports PDF officiels pour les classements"
+                ]
+            }
+        },
+    },{
         id: 7,
         title: "e-torolalana",
         description: "A web application developed for DGI Madagascar to provide employee education.",
@@ -207,9 +283,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Adopted by DGI Madagascar staff for training",
             "Improved accessibility of internal education resources"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "e-torolalana",
+                description: "Une application web développée pour la DGI Madagascar afin de fournir une éducation aux employés.",
+                objectives: "Fournir une formation numérique et des ressources au personnel de l'entreprise.",
+                achievements:[
+                    "Adoptée par le personnel de la DGI Madagascar pour la formation",
+                    "Amélioration de l'accessibilité des ressources éducatives internes"
+                ]
+            }   
+        },
+    },{
         id: 8,
         title: "Loyer Tana",
         description: "A predictive application designed to estimate rental prices in Antananarivo.",
@@ -228,9 +314,19 @@ export const projects: ProjectType[] = [
         achievements:[
         "Used by 200+ students for housing market analysis",
         "Provided predictive insights for rental decisions"
-        ]
-    }, 
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Loyer Tana",
+                description: "Une application prédictive conçue pour estimer les prix de location à Antananarivo.",
+                objectives: "Fournir des informations sur les tendances du marché immobilier et prévoir les coûts de location afin de soutenir une meilleure prise de décision pour les résidents et les investisseurs.",
+                achievements:[
+                    "Utilisée par plus de 200 étudiants pour l'analyse du marché immobilier",
+                    "Fournit des informations prédictives pour les décisions de location"
+                ]
+            }
+        }
+    }, {
         id: 9,
         title: "DMZ Network Security Architecture",
         description: "A practical project implementing a demilitarized zone (DMZ) network topology with firewall rules, proxy filtering, and secure routing between WAN, LAN, and DMZ segments.",
@@ -259,9 +355,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Designed secure DMZ topology with firewall rules",
             "Enforced access control and proxy filtering"
-        ]
-    }, 
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Architecture de Sécurité Réseau DMZ",
+                description: "Un projet pratique mettant en œuvre une topologie réseau de zone démilitarisée (DMZ) avec des règles de pare-feu, un filtrage proxy et un routage sécurisé entre les segments WAN, LAN et DMZ.",
+                objectives: "Ce projet explore les concepts de sécurité réseau en concevant et en déployant une architecture DMZ. La configuration comprend un pare-feu configuré avec iptables pour le filtrage du trafic et la NAT, Squid et SquidGuard pour le proxy web et le filtrage d'URL, ainsi que des réseaux segmentés pour le cloud, le serveur web et les systèmes clients. L'objectif était de faire respecter les politiques de contrôle d'accès, de bloquer le contenu inapproprié ou soumis à des restrictions temporelles, et d'assurer une communication sécurisée entre les réseaux internes et externes. Le projet démontre comment la sécurité en couches et l'exposition contrôlée des services (par exemple, serveur web dans la DMZ) protègent les ressources internes.",
+                achievements:[
+                    "Conception d'une topologie DMZ sécurisée avec des règles de pare-feu",
+                    "Mise en œuvre du contrôle d'accès et du filtrage proxy"
+                ]
+            }
+        }
+    }, {
         id: 10,
         title: "Digital Signature",
         description: "A web application for registering users with public keys, signing documents with private keys, and verifying digital signatures to ensure authenticity and integrity.",
@@ -280,9 +386,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Implemented PKI concepts in a web app",
             "Ensured authenticity and integrity of signed documents"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Signature Numérique",
+                description: "Une application web pour enregistrer les utilisateurs avec des clés publiques, signer des documents avec des clés privées et vérifier les signatures numériques afin d'assurer l'authenticité et l'intégrité.",
+                objectives: "Ce projet explore les concepts de cryptographie appliquée en mettant en œuvre un flux de travail de signature numérique. Les utilisateurs peuvent s'enregistrer avec un nom d'utilisateur et une clé publique, signer des documents texte à l'aide de leur clé privée et vérifier les signatures par rapport aux fichiers téléchargés. Le système valide à la fois la signature et l'identité de l'utilisateur, fournissant une preuve horodatée d'authenticité. Il démontre l'intégration pratique des concepts d'infrastructure à clé publique (PKI) dans un environnement web.",
+                achievements:[
+                    "Mise en œuvre des concepts PKI dans une application web",
+                    "Assurance de l'authenticité et de l'intégrité des documents signés"
+                ]
+            }
+        },
+    },{
         id: 11,
         title: "Customer Product Prediction",
         description: "A supervised machine learning project using R to build and compare decision tree models for customer product prediction.",
@@ -299,9 +415,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Compared multiple decision tree models in R",
             "Achieved accurate predictions on customer adoption"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Prédiction de Produit Client",
+                description: "Un projet d'apprentissage supervisé utilisant R pour construire et comparer des modèles d'arbres de décision pour la prédiction de produits clients.",
+                objectives: "Ce projet explore les techniques d'apprentissage supervisé en utilisant des algorithmes d'arbres de décision dans R. J'ai mis en œuvre et comparé plusieurs modèles (rpart, C5.0 et tree) pour prédire l'adoption de produits par les clients en fonction des attributs démographiques et financiers. Après avoir évalué les performances des modèles, le meilleur classificateur a été sélectionné et appliqué à des données non vues pour les prédictions finales.",
+                achievements:[
+                    "Comparaison de plusieurs modèles d'arbres de décision dans R",
+                    "Obtention de prédictions précises sur l'adoption des produits par les clients"
+                ]
+            }
+        }
+    },{
         id: 12,
         title: "Artizana",
         description: "A platform dedicated to showcasing Malagasy handcrafted products.",
@@ -324,9 +450,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Promoted Malagasy craftsmanship online",
             "Integrated mobile and web platforms for artisans"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Artizana",
+                description: "Une plateforme dédiée à la mise en valeur des produits artisanaux malgaches.",
+                objectives: "Son objectif est de promouvoir l'artisanat malgache et de faciliter la commercialisation des produits locaux.",
+                achievements:[
+                    "Promotion de l'artisanat malgache en ligne",
+                    "Intégration des plateformes mobile et web pour les artisans"
+                ]
+            }
+        },
+    },{
         id: 13,
         title: "Avaratra",
         description: "A regional water management platform for Madagascar.",
@@ -346,9 +482,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Anticipated climate risks for regional water management",
             "Improved awareness of water scarcity issues"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Avaratra",
+                description: "Une plateforme régionale de gestion de l'eau pour Madagascar.",
+                objectives: "Son objectif est d'anticiper les risques liés au climat et de traiter les principales causes de la pénurie d'eau.",
+                achievements:[
+                    "Anticipation des risques climatiques pour la gestion régionale de l'eau",
+                    "Amélioration de la sensibilisation aux problèmes de pénurie d'eau"
+                ]
+            }
+        },
+    },{
         id: 14,
         title: "Portfolio",
         description: "My personal portfolio built with love and compassion",
@@ -368,9 +514,19 @@ export const projects: ProjectType[] = [
         achievements: [
             "Showcases 15+ projects and 20+ technologies",
             "Deployed successfully on Vercel with responsive design"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Portfolio",
+                description: "Mon portfolio personnel construit avec amour et compassion",
+                objectives: "Mettre en valeur mes compétences et projets avec un design moderne.",
+                achievements: [
+                    "Présente plus de 15 projets et 20 technologies",
+                    "Déployé avec succès sur Vercel avec un design réactif"
+                ]
+            }
+        },
+    },{
         id: 15,
         title: "CookSmart",
         description: "An AI-powered Android application that generates personalized recipes based on ingredients available at home, helping users cook smarter while reducing food waste.",
@@ -389,8 +545,18 @@ export const projects: ProjectType[] = [
             "Generated 100+ AI‑powered recipes",
             "Reduced food waste by suggesting ingredient‑based meals"
         ],
-    },
-    {
+        translations:{
+            fr:{
+                title: "CookSmart",
+                description: "Une application Android alimentée par l'IA qui génère des recettes personnalisées en fonction des ingrédients disponibles à la maison, aidant les utilisateurs à cuisiner plus intelligemment tout en réduisant le gaspillage alimentaire.",
+                objectives: "Conçu pour combiner le développement mobile et l'intelligence artificielle, CookSmart permet aux utilisateurs de saisir les ingrédients disponibles, de sélectionner leurs préférences alimentaires, le style de recette et la taille des portions, puis de recevoir des recettes détaillées générées par l'IA. L'application fournit également un historique des recettes, la gestion des favoris, la persistance des données hors ligne et la régénération intelligente des recettes.",
+                achievements:[
+                    "Génération de plus de 100 recettes alimentées par l'IA",
+                    "Réduction du gaspillage alimentaire en suggérant des repas basés sur les ingrédients"
+                ]
+            }   
+        },
+    },{
         id: 16,
         title: "CineTrack",
         description: "A web application that helps users track, rate, and review movies and TV shows",
@@ -412,9 +578,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Managed 100+ movie reviews and watchlists",
             "Integrated TMDB API for real‑time film data"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "CineTrack",
+                description: "Une application web qui aide les utilisateurs à suivre, évaluer et commenter des films et des émissions de télévision",
+                objectives: "Une plateforme complète de suivi de films et d'émissions de télévision alimentée par l'API TMDB, conçue pour aider les utilisateurs à gérer leurs listes de visionnage, suivre leur progression, évaluer et commenter le contenu, découvrir des informations détaillées sur les films et visualiser leurs statistiques personnelles de visionnage grâce à une interface intuitive et réactive.",
+                achievements:[
+                    "Gestion de plus de 100 critiques et listes de visionnage de films",
+                    "Intégration de l'API TMDB pour des données cinématographiques en temps réel"
+                ]
+            }
+        },
+    },{
         id: 17,
         title: "Lottery OnChain",
         description: "A decentralized blockchain lottery application built on Ethereum, allowing users to purchase tickets and participate in transparent on-chain prize draws.",
@@ -440,9 +616,19 @@ export const projects: ProjectType[] = [
         achievements:[
             "Demonstrated blockchain transparency with Ethereum smart contracts",
             "Deployed live demo with MetaMask wallet integration"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "Loterie OnChain",
+                description: "Une application de loterie décentralisée basée sur la blockchain Ethereum, permettant aux utilisateurs d'acheter des tickets et de participer à des tirages au sort transparents sur la chaîne.",
+                objectives: "Conçue pour explorer le développement de contrats intelligents et l'architecture des applications décentralisées, la plateforme permet des tours de loterie sécurisés, une sélection automatisée des gagnants, une intégration de portefeuille via MetaMask et une gestion des transactions basée sur la blockchain en utilisant Ethereum.",
+                achievements:[
+                    "Démonstration de la transparence de la blockchain avec les contrats intelligents Ethereum",
+                    "Déploiement d'une démonstration en direct avec intégration du portefeuille MetaMask"
+                ]
+            }   
+        },
+    },{
         id: 18,
         title: "Coffee",
         description: "A cloud computing project focused on learning and applying AWS services through hands-on labs, including infrastructure setup and application deployment.",
@@ -460,8 +646,18 @@ export const projects: ProjectType[] = [
             "Deployed successfully on AWS Cloud infrastructure",
             "Implemented secure VPC and database setup"
         ],
-    },
-    {
+        translations:{
+            fr:{
+                title: "Coffee",
+                description: "Un projet de cloud computing axé sur l'apprentissage et l'application des services AWS à travers des laboratoires pratiques, y compris la configuration de l'infrastructure et le déploiement d'applications.",
+                objectives: "Ce projet a été réalisé dans le cadre du programme de formation AWS Cloud Foundations et AWS Cloud Developing à l'Université Côte d’Azur. Il impliquait la conception et le déploiement d'une infrastructure cloud en utilisant les services Amazon Web Services, y compris la configuration du VPC, la mise en place de bases de données et l'hébergement d'une application exemple liée au café. L'objectif était de comprendre l'architecture cloud, la scalabilité et les meilleures pratiques pour déployer des applications modernes dans un environnement AWS sécurisé.",
+                achievements:[
+                    "Déployé avec succès sur l'infrastructure AWS Cloud",
+                    "Mise en œuvre d'une configuration sécurisée du VPC et de la base de données"
+                ]
+            }
+        },
+    },{
         id: 19,
         title: "SIG Madagascar - Spatial",
         description: "A GIS project focused on mapping and analyzing demographic and geographic data of Madagascar.",
@@ -494,9 +690,21 @@ export const projects: ProjectType[] = [
             "Integrated demographic datasets (population, households) for spatial analysis",
             "Visualized water resources and routes to support regional planning",
             "Applied GIS methods to anticipate climate risks and resource scarcity"
-        ]
-    },
-    {
+        ],
+        translations:{
+            fr:{
+                title: "SIG Madagascar - Spatial",
+                description: "Un projet SIG axé sur la cartographie et l'analyse des données démographiques et géographiques de Madagascar.",
+                objectives: "Le projet visait à intégrer des ensembles de données spatiales (districts, communes, routes, lacs, population) pour soutenir la planification régionale et mettre en évidence les problèmes de pénurie d'eau et les risques liés au climat.",
+                achievements:[
+                    "Cartographie des limites administratives (districts et communes) avec des données géoréférencées",
+                    "Intégration des ensembles de données démographiques (population, ménages) pour l'analyse spatiale",
+                    "Visualisation des ressources en eau et des routes pour soutenir la planification régionale",
+                    "Application des méthodes SIG pour anticiper les risques climatiques et la rareté des ressources"
+                ]
+            }
+        },
+    },{
         id: 20,
         title: "Làlana",
         description: "A Ruby-based web application designed to evaluate and rank contractors according to road project quality metrics.",
@@ -519,7 +727,18 @@ export const projects: ProjectType[] = [
             "Automated contractor ranking based on quality-price ratio",
             "Integrated dynamic SQL formula evaluation for road quality",
             "Demonstrated Ruby–PostgreSQL integration in a lightweight web app"
-        ]
+        ],
+        translations:{
+            fr:{
+                title: "Làlana",
+                description: "Une application web basée sur Ruby conçue pour évaluer et classer les entrepreneurs selon les métriques de qualité des projets routiers.",
+                objectives: "Le système permet aux utilisateurs de sélectionner une route, de récupérer les données des entrepreneurs et de calculer un ratio qualité-prix en utilisant des formules stockées. Il automatise l'évaluation et le classement en fonction des indicateurs de performance tels que la vitesse, l'efficacité des employés et l'expérience.",
+                achievements: [
+                    "Classement automatisé des entrepreneurs basé sur le ratio qualité-prix",
+                    "Intégration de l'évaluation dynamique des formules SQL pour la qualité routière",
+                    "Démonstration de l'intégration Ruby–PostgreSQL dans une application web légère"
+                ]
+            }
+        }
     }
-    
 ]
