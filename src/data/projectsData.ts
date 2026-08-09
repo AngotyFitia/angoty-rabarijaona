@@ -31,7 +31,10 @@ export interface ProjectType {
   collaborators?: Collaborator[]
   projectRole?: string
   isPrivate?: boolean
-  achievements?: string[]
+  achievements?: string[],
+  featured?: boolean,
+  date?: string
+  period?: { start: string, end?: string }
 }
 
 export const projects: ProjectType[] = [
@@ -57,7 +60,8 @@ export const projects: ProjectType[] = [
         achievements:[
           "Enabled product exchange and resale among students",
           "Strengthened database security with role‑based access"
-        ]
+        ],
+        period: { start: "July 2023", end: "" }
     }, 
     {
         id: 2,
@@ -77,7 +81,8 @@ export const projects: ProjectType[] = [
         achievements:[
             "Automated product recipe composition",
             "Ensured data consistency with unique primary keys"
-        ]
+        ],
+        period: { start: "January 2024", end: "February 2024" }
     },
     {
         id: 3,
@@ -106,7 +111,8 @@ export const projects: ProjectType[] = [
         achievements:[
             "Streamlined accounting workflows for asset management",
             "Enhanced collaboration between Finance and Accounting"
-        ]
+        ],
+        period: { start: "October 2024", end: "February 2024" }
     },
     {
         id: 4,
@@ -131,7 +137,8 @@ export const projects: ProjectType[] = [
         achievements: [
             "Digitalized furniture company operations",
             "Improved workflow efficiency by 30%"
-        ]
+        ],
+        period: { start: "January 2024", end: "February 2024" }
     },
     {
         id: 5,
@@ -155,7 +162,8 @@ export const projects: ProjectType[] = [
         achievements:[
             "Digitalized subscription workflows for TV services",
             "Improved client data management and billing transparency"
-        ]
+        ],
+        period: { start: "August 2023", end: "" }
     },
     {
         id: 6,
@@ -181,7 +189,8 @@ export const projects: ProjectType[] = [
         achievements:[
             "Digitalized race organization workflows",
             "Generated official PDF reports for rankings"
-        ]
+        ],
+        period: { start: "June 2024", end: "" }
     },
     {
         id: 7,
@@ -207,7 +216,8 @@ export const projects: ProjectType[] = [
         achievements:[
             "Adopted by DGI Madagascar staff for training",
             "Improved accessibility of internal education resources"
-        ]
+        ],
+        period: { start: "August 2024", end: "November 2024" }
     },
     {
         id: 8,
@@ -228,7 +238,8 @@ export const projects: ProjectType[] = [
         achievements:[
         "Used by 200+ students for housing market analysis",
         "Provided predictive insights for rental decisions"
-        ]
+        ],
+        period: { start: "January 2024", end: "February 2024" }
     }, 
     {
         id: 9,
@@ -520,6 +531,50 @@ export const projects: ProjectType[] = [
             "Integrated dynamic SQL formula evaluation for road quality",
             "Demonstrated Ruby–PostgreSQL integration in a lightweight web app"
         ]
+    },
+    {
+        id: 21,
+        title: "VEH",
+        description: "A hybrid Web and mobile platform designed to create and play interactive narrative scenarios inspired by 'Vous êtes le Héro' books.",
+        objectives: "The project aims to build a narrative game engine and a scenario editor, integrating AI-powered illustration and sound generation. The mobile app allows players to experience interactive stories, while the Web platform enables creators to design and serialize branching scenarios using a graph-based structure.",
+        image: "/images/projects/veh_web_login.png",
+        gallery: [
+            "/images/projects/veh_web_login.png",
+            "/images/projects/veh_web_liste_histoire.png",
+            "/images/projects/veh_web_histoire_apercu.png",
+            "/images/projects/veh_web_creation_histoire_1.png",
+            "/images/projects/veh_web_creation_histoire_2.png",
+            "/images/projects/veh_web_creation_histoire_3.png",
+            "/images/projects/veh_web_creation_scene_1.png",
+            "/images/projects/veh_web_creation_scene_2.png",
+            "/images/projects/veh_web_creation_scene_3.png",
+            "/images/projects/veh_web_creation_scene_4.png",
+            "/images/projects/veh_web_profile.png",
+            "/images/projects/veh_mobile_login.jpg",
+            "/images/projects/veh_mobile_inscription.jpg",
+            "/images/projects/veh_mobile_scenarios.jpg",
+            "/images/projects/veh_mobile_liste_histoires.jpg",
+        ],
+        category: "Mobile Gaming",
+        organization: "Université Côte d'Azur",
+        orgLink: "https://univ-cotedazur.fr",
+        technologies: ["React Typescript", "NodeJs", "React Native", "Neo4j", "Github", "Trello", "Postman"],
+        repositories: {},
+        collaborators: [
+            { name: "ANDRIANARIVELO Jessica Andie ", type: "linkedin", link: "https://www.linkedin.com/in/jessica-andie-andrianarivelo-2449482ba/", role: "Lead Developer" },
+            { name: "RAZAKARIVONY Toavina", type: "linkedin", link: "https://www.linkedin.com/in/toavina-razakarivony/", role: "Mobile Developer" },
+            { name: "RASELISON Toky Nantenaina Nimbol", type: "linkedin", link: "https://www.linkedin.com/in/raselison-toky-904455237/", role: "Backend Developer" },
+            { name: "Nambinintsoa Luciano", type: "linkedin", link: "https://www.linkedin.com/in/nambinintsoa-luciano-0900851a1/", role: "Frontend Developer" }
+        
+        ],
+        projectRole: "Fullstack Developer & IA Integrator",
+        achievements: [
+            "Developed a narrative engine based on tree/graph structures",
+            "Implemented a Web scenario editor with serialization support",
+            "Built a hybrid mobile app for interactive storytelling",
+            "Integrated generative AI for illustrations and soundscapes",
+            "Designed an extensible architecture enabling community-driven scenario creation"
+        ] 
     }
     
 ]
