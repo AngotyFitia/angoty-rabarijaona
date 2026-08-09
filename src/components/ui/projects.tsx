@@ -44,7 +44,7 @@ export default function Project() {
             <Button key={filter} onClick={() => setSelectedOrg(filter)} className={`px-4 py-2 rounded-full border ${ selectedOrg === filter ? "bg-black text-white" : "bg-transparent text-black" }`}>{filter}</Button>
           ))}
         </div>
-        <div className="flex flex-wrap gap-3 justify-center">
+        {/* <div className="flex flex-wrap gap-3 justify-center">
           <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">Year:</span>
           <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} className="px-4 py-2 rounded-full border text-sm bg-transparent text-black hover:bg-black hover:text-white transition">
             <option value="All">All Years</option>
@@ -52,7 +52,7 @@ export default function Project() {
               <option key={year} value={year}>{year}</option>
             ))}
           </select>
-        </div>
+        </div> */}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
