@@ -67,41 +67,38 @@ export default function About() {
             </div>
           </div>
 
-          {/* Colonne droite : services + stats */}
           <div className="space-y-12">
-            {/* Services : passent en 1 colonne sur mobile */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center">
                 <i className="fas fa-code text-3xl text-[#000000] mb-3"></i>
-                <h3 className="font-semibold mb-3 text-center">Website Development</h3>
+                <h3 className="font-semibold mb-3 text-center">Web Development</h3>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center">
                 <i className="fas fa-mobile-alt text-3xl text-[#000000] mb-3"></i>
-                <h3 className="font-semibold mb-3 text-center">Mobile Application</h3>
+                <h3 className="font-semibold mb-3 text-center">Mobile Development</h3>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center">
                 <i className="fas fa-chart-line text-3xl text-[#000000] mb-3"></i>
-                <h3 className="font-semibold mb-3 text-center">Data Insights</h3>
+                <h3 className="font-semibold mb-3 text-center">Data Analysis</h3>
               </div>
             </div>
 
-            {/* Stats : adaptatives */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center mt-8">
               <div className="flex flex-col items-center">
                 <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#000000] text-white text-lg sm:text-2xl font-bold shadow-md">Msc</div>
-                <p className="mt-2 text-sm text-[#555555]">Education</p>
+                <p className="mt-2 text-sm text-[#555555]">Computer Science</p>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#000000] text-white text-lg sm:text-2xl font-bold shadow-md">2+</div>
-                <p className="mt-2 text-sm text-[#555555]">Years Practice</p>
+                <p className="mt-2 text-sm text-[#555555]">Years Building</p>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#000000] text-white text-lg sm:text-2xl font-bold shadow-md">15+</div>
-                <p className="mt-2 text-sm text-[#555555]">Projects</p>
+                <p className="mt-2 text-sm text-[#555555]">Projects shipped</p>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#000000] text-white text-lg sm:text-2xl font-bold shadow-md">10+</div>
-                <p className="mt-2 text-sm text-[#555555]">Technologies</p>
+                <p className="mt-2 text-sm text-[#555555]">Tech Stacks Mastered</p>
               </div>
             </div>
           </div>

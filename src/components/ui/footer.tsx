@@ -17,9 +17,9 @@ export default function Footer() {
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <a href="mailto:angotyrabarijaona@gmail.com" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fas fa-envelope"></i></a>
               <a href="https://wa.me/261375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-whatsapp"></i></a>
+              <a href="https://t.me/+261375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-telegram"></i></a>
               <a href="https://linkedin.com/in/angoty-rabarijaona" target="_blank" rel="noopener noreferrer"className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-linkedin"></i></a>
-              <a href="https://github.com/angotyfitia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-github"></i></a>
-              <a href="https://github.com/angoty" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transition"><i className="fab fa-github"></i></a>
+              <button onClick={() => { window.open("https://github.com/angotyfitia", "_blank"); window.open("https://github.com/angoty", "_blank");  }} className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white transitio"><i className="fab fa-github"></i></button>
             </div>
           </div>
           <div>
@@ -46,9 +46,7 @@ export default function Footer() {
               </a>
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <i className="fas fa-map-marker-alt w-4 text-gray-500"></i>
-                <span className="text-center md:text-left">
-                  Itaosy, Antananarivo, Madagascar
-                </span>
+                <a href="https://maps.app.goo.gl/j7AVCePKZDxHyvUQA"  target="_blank" rel="noopener noreferrer" className="text-center md:text-left hover:underline text-gray-800">Itaosy, Antananarivo, Madagascar</a>
               </div>
             </div>
           </div>

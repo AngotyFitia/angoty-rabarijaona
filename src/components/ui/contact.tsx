@@ -54,9 +54,13 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-16 px-6 md:px-12 bg-gray-50">
-      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Let's work together </h2>
-      <p className="text-sm sm:text-base text-gray-600 mb-10">Feel free to reach out for collaborations, projects, or just to connect.</p>
-
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Let's build something meaningful </h2>
+      <p className="text-sm sm:text-base text-gray-600 mb-10">Open to collaborations and projects that create real value and lasting impact.</p>
+      <div className="bg-gray-200 border-l-4 border-black rounded-lg p-4 text-sm text-gray-800 shadow-sm flex items-center gap-3">
+          <i className="fas fa-exclamation-circle text-2xl text-black"></i>
+          <p className="font-semibold"> Have a project in mind or want to discuss an opportunity?  Send a clear note with context, timeline, and what you want to build.</p>
+      </div>
+      <br></br>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="space-y-4">
           <div className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm">
@@ -93,19 +97,23 @@ export default function Contact() {
             <div className="flex gap-4">
               <a href="mailto:angotyrabarijaona@gmail.com" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fas fa-envelope"></i></a>
               <a href="https://wa.me/267375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-whatsapp"></i></a>
+              <a href="https://t.me/+261375809827" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-telegram"></i></a>              
               <a href="https://linkedin.com/in/angoty-rabarijaona" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-linkedin"></i></a>
-              <a href="https://github.com/angotyfitia" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-github"></i></a>
-              <a href="https://github.com/angoty" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition"><i className="fab fa-github"></i></a>
+              <button onClick={() => { window.open("https://github.com/angotyfitia", "_blank"); window.open("https://github.com/angoty", "_blank");  }} className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:text-gray-900 hover:bg-gray-200 transition">
+                <i className="fab fa-github"></i>
+              </button>
             </div>
           </div>
         </div>
+        <div className="flex flex-col gap-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white text-gray-900"/>
           <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white text-gray-900"/>
           <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white text-gray-900"/>
           <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} rows={5} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white text-gray-900"></textarea>
           <button type="submit" disabled={!canSend} className={`w-full px-6 py-3 rounded-lg shadow-md transition ${ canSend ? "bg-black text-white hover:bg-gray-800" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}>Send Message</button>
-        </form>
+        </form>        
+        </div>
       </div>
     </section>
   );

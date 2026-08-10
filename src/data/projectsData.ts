@@ -32,9 +32,6 @@ export interface ProjectType {
   projectRole?: string
   isPrivate?: boolean
   achievements?: string[],
-  featured?: boolean,
-  date?: string
-  period?: { start: string, end?: string }
 }
 
 export const projects: ProjectType[] = [
@@ -61,7 +58,6 @@ export const projects: ProjectType[] = [
           "Enabled product exchange and resale among students",
           "Strengthened database security with role‑based access"
         ],
-        period: { start: "July 2023", end: "" }
     }, 
     {
         id: 2,
@@ -82,7 +78,6 @@ export const projects: ProjectType[] = [
             "Automated product recipe composition",
             "Ensured data consistency with unique primary keys"
         ],
-        period: { start: "January 2024", end: "February 2024" }
     },
     {
         id: 3,
@@ -112,7 +107,6 @@ export const projects: ProjectType[] = [
             "Streamlined accounting workflows for asset management",
             "Enhanced collaboration between Finance and Accounting"
         ],
-        period: { start: "October 2024", end: "February 2024" }
     },
     {
         id: 4,
@@ -138,7 +132,6 @@ export const projects: ProjectType[] = [
             "Digitalized furniture company operations",
             "Improved workflow efficiency by 30%"
         ],
-        period: { start: "January 2024", end: "February 2024" }
     },
     {
         id: 5,
@@ -163,7 +156,6 @@ export const projects: ProjectType[] = [
             "Digitalized subscription workflows for TV services",
             "Improved client data management and billing transparency"
         ],
-        period: { start: "August 2023", end: "" }
     },
     {
         id: 6,
@@ -190,7 +182,6 @@ export const projects: ProjectType[] = [
             "Digitalized race organization workflows",
             "Generated official PDF reports for rankings"
         ],
-        period: { start: "June 2024", end: "" }
     },
     {
         id: 7,
@@ -217,7 +208,6 @@ export const projects: ProjectType[] = [
             "Adopted by DGI Madagascar staff for training",
             "Improved accessibility of internal education resources"
         ],
-        period: { start: "August 2024", end: "November 2024" }
     },
     {
         id: 8,
@@ -239,7 +229,6 @@ export const projects: ProjectType[] = [
         "Used by 200+ students for housing market analysis",
         "Provided predictive insights for rental decisions"
         ],
-        period: { start: "January 2024", end: "February 2024" }
     }, 
     {
         id: 9,

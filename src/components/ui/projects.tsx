@@ -1,28 +1,15 @@
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { DEFAULT_IMAGE, projects, type ProjectType } from "@/data/projectsData"
+import { DEFAULT_IMAGE, projects, type ProjectType } from "../../data/projectsData"
 
 export default function Project() {
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [selectedOrg, setSelectedOrg] = useState("All Organizations")
+  const [selectedOrg, setSelectedOrg] = useState("All")
   const [activeProject, setActiveProject] = useState<ProjectType | null>(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedYear, setSelectedYear] = useState("All")
-  const years = Array.from(
-    new Set(
-      projects.flatMap((p) => [
-        p.period?.start?.split(" ")[1], 
-        p.period?.end?.split(" ")[1]
-      ].filter(Boolean))
-    )
-  ).sort()
-  
+  const [currentIndex, setCurrentIndex] = useState(0)  
   const filteredProjects = projects.filter((p) => {
     const categoryMatch = selectedCategory === "All" || p.category === selectedCategory
-    const orgMatch = selectedOrg === "All Organizations" || p.organization === selectedOrg
-    const yearMatch = selectedYear === "All" ||
-    (p.period?.start?.includes(selectedYear) || p.period?.end?.includes(selectedYear))
-  return categoryMatch && orgMatch && yearMatch
+    const orgMatch = selectedOrg === "All" || p.organization === selectedOrg
+    return categoryMatch && orgMatch
   })
 
   return (
@@ -33,26 +20,18 @@ export default function Project() {
       </div>
 
       <div className="flex flex-col gap-6 items-center mb-12">
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center items-center">
+          <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">Domain:</span>
           {["All","Mobile Application","Web Application","Desktop Application", "Data-science", "Mobile Gaming", "BlockChain", "Cloud / DevOps", "Cybersecurity"].map((filter) => (
-            <Button key={filter} onClick={() => setSelectedCategory(filter)} className={`px-4 py-2 rounded-full border ${ selectedCategory === filter ? "bg-black text-white" : "bg-transparent text-black"}`}>{filter}</Button>
+            <button key={filter} onClick={() => setSelectedCategory(filter)} className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition ${ selectedCategory === filter ?  "bg-gray-900 text-white shadow-md": "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}>{filter}</ button>
           ))}
         </div>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">By:</span>
-          {["All Organizations","DGI Madagascar", "Personal","IT University", "Université Côte d'Azur"].map((filter) => (
-            <Button key={filter} onClick={() => setSelectedOrg(filter)} className={`px-4 py-2 rounded-full border ${ selectedOrg === filter ? "bg-black text-white" : "bg-transparent text-black" }`}>{filter}</Button>
+        <div className="flex flex-wrap gap-3 justify-center items-center">
+          <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">Organization:</span>
+          {["All","DGI Madagascar", "Personal","IT University", "Université Côte d'Azur"].map((filter) => (
+            <button key={filter} onClick={() => setSelectedOrg(filter)} className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition ${ selectedOrg === filter ? "bg-gray-900 text-white shadow-md": "bg-gray-200 text-gray-700 hover:bg-gray-300" }`}>{filter} </button>
           ))}
         </div>
-        {/* <div className="flex flex-wrap gap-3 justify-center">
-          <span className="text-sm md:text-base font-semibold text-[#1a1a1a]">Year:</span>
-          <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} className="px-4 py-2 rounded-full border text-sm bg-transparent text-black hover:bg-black hover:text-white transition">
-            <option value="All">All Years</option>
-            {years.map((year) => (
-              <option key={year} value={year}>{year}</option>
-            ))}
-          </select>
-        </div> */}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
@@ -67,38 +46,30 @@ export default function Project() {
 
               <div className="flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 min-h-[48px]"> {project.title} </h3>
-                {/* <h2 className="text-lg font-semibold text-gray-900 mb-2 min-h-[48px]"> {project.title} {project.featured && ( 
-                    <span className="ml-2 px-2 py-1 text-xs bg-yellow-400 text-black rounded">Featured</span>)}
-                </h2> */}
                 <p className="text-sm text-gray-600 mb-4 min-h-[60px]"> {project.description} </p>
                 <div className="mt-auto">
                   <span className="block text-xs font-semibold text-gray-700 mb-2"> Technologies</span>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full shadow-sm">{tech}</span>
+                    {project.technologies.map((tech, index) => (
+                      <span key={`${project.id}-${index}`} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full shadow-sm">{tech}</span>
                     ))}
                   </div>
-
                   <div className="flex items-center justify-between text-xs mt-2">
                     <a href={project.orgLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium transition">
                       <i className="fas fa-building"></i>
                       <span>{project.organization}</span>
                       <i className="fas fa-arrow-up-right-from-square text-xs text-gray-500"></i>
                     </a>
-
                     <div className="flex items-center gap-2 text-gray-600">
                       <i className="fas fa-tag"></i>
                       <span className="font-medium">{project.category}</span>
                     </div>
                   </div>
-                  
                 </div>
               </div>
             </div>
         ))}
-      </div>
-      
-      {/* Modal */}
+      </div>      
       {activeProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-6">
           <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-white rounded-xl shadow-xl">
@@ -115,13 +86,6 @@ export default function Project() {
                   <i className="fas fa-arrow-up-right-from-square text-xs text-gray-400"></i>
                 </a>
               </div>
-              {activeProject.period && (
-                <div className="mt-2 text-sm text-gray-500">
-                  <i className="fas fa-calendar-alt mr-2"></i>
-                  {activeProject.period.start} 
-                  {activeProject.period.end && ` – ${activeProject.period.end}`}
-                </div>
-              )}
               {activeProject.projectRole && (
                 <div className="mt-3 text-sm">
                   <span className="text-gray-500">My role:</span>{" "}
@@ -156,6 +120,7 @@ export default function Project() {
               
               <div className="flex flex-col gap-6">
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                <h3 className="text-sm font-semibold text-gray-900 mb-3"> Description and Objectives</h3>
                   <p className="text-gray-700 leading-relaxed">{activeProject.objectives}</p>
                   <p className="text-gray-500 mt-3 text-sm leading-relaxed"> {activeProject.description}</p>
                 </div>
@@ -178,8 +143,11 @@ export default function Project() {
                     </div>
                 )}
                 <div className="space-y-2">
+                    {((activeProject.collaborators ?? []).length > 0) && (
+                        <h3 className="text-sm font-semibold text-gray-900 mb-3">Collaborators</h3>
+                    )}
                     {(activeProject.collaborators ?? []).map((c) => (
-                      <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="grid grid-cols-[1fr_180px_24px] items-center px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
+                    <a key={c.name} href={c.link} target="_blank" rel="noopener noreferrer" className="grid grid-cols-[1fr_180px_24px] items-center px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition">
                         <div className="min-w-0">
                           <span className="text-sm font-medium text-gray-700 truncate block">
                             {c.name}
@@ -196,9 +164,10 @@ export default function Project() {
                     ))}
                 </div>
                 <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-3"> Links</h3>
+                    {(activeProject.repositories?.frontend || activeProject.repositories?.backend || activeProject.repositories?.mobile || activeProject.repositories?.source || activeProject.liveUrl || activeProject.videoUrl) && (
+                      <h3 className="text-sm font-semibold text-gray-900 mb-3">Links</h3>
+                    )}
                   <div className="flex flex-wrap gap-3">
-                  
                     {activeProject.repositories?.frontend && (
                       <a href={activeProject.repositories.frontend} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition">Frontend</a>
                     )}

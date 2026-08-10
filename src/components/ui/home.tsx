@@ -30,7 +30,7 @@ export default function Home() {
             <Button className="w-auto bg-black text-white rounded-full px-6 py-3 shadow-md hover:bg-gray-800 transition-transform duration-300" style={{ animation: "glow 2s infinite" }}>Let’s work together</Button>
           </a>
           <a href="#projects">
-            <Button className="w-auto bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] hover:translate-y-[-2px] transition-transform duration-300">View projects</Button>
+            <Button className="w-auto bg-transparent text-[#1a1a1a] border border-[#000000] rounded-full px-6 py-3 shadow-md hover:bg-[#f0f0f0] hover:text-[#000000] hover:translate-y-[-2px] transition-transform duration-300">View my projects</Button>
           </a>
         </div>
       </div>

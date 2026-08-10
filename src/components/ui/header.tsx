@@ -154,7 +154,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2 bg-white text-gray-900 text-sm px-4 py-1 rounded-full shadow-md whitespace-nowrap">
           <i className="fas fa-briefcase" style={{ color: "green" }}></i>
-          <span>Available for new projects</span>
+          <span>Available for useful projects</span>
         </div>
       </div>
       {cvModalOpen && (

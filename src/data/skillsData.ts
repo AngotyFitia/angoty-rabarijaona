@@ -32,13 +32,13 @@ export type TechSkill = {
         { name: "C#", percentage: 80, icon: "devicon-csharp-plain colored" },
         { name: "Spring Boot", percentage: 75, icon: "devicon-spring-plain colored" },
         { name: ".NET", percentage: 75, icon: "devicon-dotnetcore-plain colored" },
-        { name: "Node.js", percentage: 75, icon: "devicon-nodejs-plain colored" },
-        { name: "Express.js", percentage: 70, icon: "devicon-express-original" },
-        { name: "FastAPI", percentage: 70, icon: "devicon-fastapi-plain colored" },
+        { name: "Express.js", percentage: 75, icon: "devicon-express-original" },
+        { name: "REST API", percentage: 70, icon: "devicon-fastapi-plain colored" },
         { name: "Python", percentage: 70, icon: "devicon-python-plain colored" },
         { name: "Django", percentage: 65, icon: "devicon-django-plain colored" },
+        { name: "Node.js", percentage: 60, icon: "devicon-nodejs-plain colored" },
         { name: "PHP", percentage: 50, icon: "devicon-php-plain colored" },
-        { name: "CodeIgniter", percentage: 50, icon: "devicon-codeigniter-plain colored" },
+        { name: "CodeIgniter", percentage: 40, icon: "devicon-codeigniter-plain colored" },
       ],
     },
     {
@@ -57,11 +57,12 @@ export type TechSkill = {
       category: "Databases",
       skills: [
         { name: "PostgreSQL", percentage: 80, icon: "devicon-postgresql-plain colored" },
-        { name: "SQLServer", percentage: 80, icon: "devicon-microsoftsqlserver-plain colored" },
+        { name: "Oracle", percentage: 80, icon: "devicon-oracle-original colored" },
+        { name: "SQLServer", percentage: 70, icon: "devicon-microsoftsqlserver-plain colored" },
         { name: "MySQL", percentage: 70, icon: "devicon-mysql-plain colored" },
-        { name: "Oracle", percentage: 70, icon: "devicon-oracle-original colored" },
         { name: "MongoDB", percentage: 70, icon: "devicon-mongodb-plain colored" },
         { name: "Supabase", percentage: 50, icon: "devicon-supabase-plain colored" },
+        { name: "Neo4j", percentage: 50, icon: "devicon-neo4j-plain colored" },
       ],
     },
     {
@@ -86,23 +87,23 @@ export type TechSkill = {
       skills: [
         { name: "VS Code", percentage: 80, icon: "devicon-vscode-plain colored" },
         { name: "Postman", percentage: 80, icon: "devicon-postman-plain colored" },
-        { name: "Microsoft Word", percentage: 80, icon: "fas fa-file-word text-blue-600" },
         { name: "Microsoft Excel", percentage: 80, icon: "fas fa-file-excel text-green-500" },
-        { name: "Adobe XD", percentage: 60, icon: "devicon-xd-plain colored" },
+        { name: "Microsoft Word", percentage: 80, icon: "fas fa-file-word text-blue-600" },
+        { name: "Trello", percentage: 50, icon: "devicon-trello-plain colored" },
+        { name: "Adobe XD", percentage: 50, icon: "devicon-xd-plain colored" },
         { name: "Figma", percentage: 40, icon: "devicon-figma-plain colored" },
       ],
     },
     {
       category: "Mobile",
       skills: [
-        { name: "Ionic", percentage: 70, icon: "devicon-ionic-original colored" },
         { name: "React Native", percentage: 65, icon: "devicon-react-original colored" },
+        { name: "Ionic", percentage: 60, icon: "devicon-ionic-original colored" },
+        { name: "Kotlin", percentage: 50, icon: "devicon-kotlin-plain colored" },
       ],
     },
   ];
   
-  
-  // Données Soft Skills
   export const softSkills: SoftSkill[] = [
     { 
       name: "Problem Solving", 
@@ -133,11 +134,9 @@ export type TechSkill = {
   ];
 
   export const otherLanguages: TechSkill[] = [
-      { name: "C", percentage: 75, icon: "devicon-c-plain colored" },
+    { name: "C", percentage: 75, icon: "devicon-c-plain colored" },
     { name: "Perl", percentage: 60, icon: "devicon-perl-plain colored" },
     { name: "Ruby", percentage: 75, icon: "devicon-ruby-plain colored" },
-    { name: "Laravel", percentage: 75, icon: "devicon-laravel-plain colored" },
-    { name: "Kotlin", percentage: 65, icon: "devicon-kotlin-plain colored" },
   ];
   
   
