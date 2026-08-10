@@ -71,11 +71,11 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center">
                 <i className="fas fa-code text-3xl text-[#000000] mb-3"></i>
-                <h3 className="font-semibold mb-3 text-center">Web Development</h3>
+                <h3 className="font-semibold mb-3 text-center">Dev. web</h3>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center">
                 <i className="fas fa-mobile-alt text-3xl text-[#000000] mb-3"></i>
-                <h3 className="font-semibold mb-3 text-center">Mobile Development</h3>
+                <h3 className="font-semibold mb-3 text-center">Dev. mobile</h3>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center">
                 <i className="fas fa-chart-line text-3xl text-[#000000] mb-3"></i>
