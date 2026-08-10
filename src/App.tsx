@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div className="min-h-screen">
-      <Header />
-      <Toaster position="top-right" />
+        <Header />
+        <Toaster position="top-right" />
         <Home />
         <About />
         <Project />
